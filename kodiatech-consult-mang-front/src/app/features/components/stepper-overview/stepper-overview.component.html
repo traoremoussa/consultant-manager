@@ -1,0 +1,36 @@
+<div class="stepper">
+<mat-horizontal-stepper [linear]="isLinear" #stepper class="stepper-card">
+  <mat-step >
+    <ng-template matStepLabel>Accueil</ng-template>
+    <app-home></app-home>
+    <button  mat-raised-button color="primary" matStepperNext>Demarrer</button>
+    </mat-step>
+
+
+
+    <mat-step >
+      <ng-template matStepLabel>Information personnelles</ng-template>
+
+
+      <app-inscription></app-inscription>
+      <p>Socialize with each other.</p>
+
+      <div>
+        <button   mat-raised-button color="primary" matStepperPrevious>Back</button>
+        <button  mat-raised-button color="primary" matStepperNext>Next</button>
+      </div>
+    </mat-step>
+    <mat-step >
+      <ng-template matStepLabel>Soumission du dossier</ng-template>
+
+
+      <p>Socialize with each other.</p>
+
+      <div>
+        <button  mat-raised-button color="primary" matStepperPrevious>Back</button>
+
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+
+</div>

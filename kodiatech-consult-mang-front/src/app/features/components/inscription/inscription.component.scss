@@ -1,0 +1,22 @@
+.main-form{
+  display: flex;
+justify-content: space-between;
+
+}
+
+.inscription{
+
+
+}
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+mat-form-field {
+  width: 48%;
+  &.full-width {
+    width: 80%;
+    margin-left: 10%;
+  }
+}

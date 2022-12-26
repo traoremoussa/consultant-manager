@@ -1,0 +1,24 @@
+<div class="login-main">
+  <mat-card [formGroup]="mainForm" class="main-form" >
+    <mat-card-title>Identifiez vous</mat-card-title>
+
+    <mat-form-field >
+      <mat-label>Email</mat-label>
+      <input type="text" matInput formControlName="email" />
+      <mat-error>Ce champ est requis</mat-error>
+    </mat-form-field>
+
+    <mat-form-field >
+      <mat-label>Password</mat-label>
+      <input type="text" matInput formControlName="password" />
+      <mat-error>Ce champ est requis</mat-error>
+    </mat-form-field>
+
+  <!-- -->
+  <mat-card-actions >
+    <button mat-flat-button color="primary" (click)="onSubmit()" >
+      Se connecter
+    </button>
+  </mat-card-actions>
+  </mat-card>
+</div>
