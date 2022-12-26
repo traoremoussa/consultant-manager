@@ -1,0 +1,22 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/consultant_db
+  output:
+    ansi:
+      enabled: ALWAYS
+## comme je n'ai pas de mot de passe et user donc je laisse comme
+## bdd est creee automatiquement par mongo
+## https://stackoverflow.com/questions/56371736/spring-boot-mongo-db-yml-configuration
+
+logging:
+  level:
+    datasource-query-logger: INFO
+    org.springframework.data: DEBUG
+
+server:
+  error:
+  include-message: always
+  include-binding-errors: always
+  include-stacktrace: on_trace_param
+  include-exception: false
