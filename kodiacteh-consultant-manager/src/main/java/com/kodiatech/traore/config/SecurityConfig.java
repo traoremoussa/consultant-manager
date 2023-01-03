@@ -23,6 +23,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import java.util.function.Function;
+
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor //
@@ -37,7 +39,7 @@ public class SecurityConfig {
                 .csrf().disable()
                 .authorizeHttpRequests()
                 .requestMatchers("/*/*/auth/**").permitAll()
-
+                .requestMatchers("/**").permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()
@@ -67,7 +69,7 @@ public class SecurityConfig {
     @Bean
     public PasswordEncoder passwordEncoder() {
         //comme actuellement je crypt pas
-      //  return new BCryptPasswordEncoder();
+        //  return new BCryptPasswordEncoder();
 
         return NoOpPasswordEncoder.getInstance();
     }
@@ -83,4 +85,6 @@ public class SecurityConfig {
             }
         };
     }
+
+
 }

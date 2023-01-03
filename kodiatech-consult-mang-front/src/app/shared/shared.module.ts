@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { MaterialModule } from './material.module';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { TimelineModule } from 'primeng/timeline';
 
 @NgModule({
   declarations: [ ],
@@ -11,12 +11,14 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     MaterialModule,
     ReactiveFormsModule,
+    TimelineModule
 
   ],
   exports:[
     // on a exporter vu que sharemodule, serait presque partout
     MaterialModule,
     ReactiveFormsModule,
+    TimelineModule
   ]
 })
 export class SharedModule { }

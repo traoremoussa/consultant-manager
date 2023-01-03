@@ -21,7 +21,7 @@ mainForm!: FormGroup;
     alpha2Code: 'FR',
     alpha3Code: 'FRA',
     numericCode: '250',
-    callingCode: ''
+    callingCode: '+33'
   };
   constructor(    private formBuilder: FormBuilder) { }
 

@@ -1,10 +1,11 @@
 package com.kodiatech.traore.profiles.models;
 
+
+import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Embeddable;
 
 @Embeddable
 @AllArgsConstructor

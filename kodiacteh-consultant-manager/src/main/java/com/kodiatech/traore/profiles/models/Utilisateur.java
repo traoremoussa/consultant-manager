@@ -1,10 +1,12 @@
 package com.kodiatech.traore.profiles.models;
 
+
+import jakarta.persistence.Embedded;
+import jakarta.persistence.Id;
+import jakarta.persistence.Transient;
 import lombok.*;
+
 import org.springframework.data.mongodb.core.mapping.Document;
-
-import javax.persistence.*;
-
 
 @AllArgsConstructor
 
@@ -20,7 +22,8 @@ public class Utilisateur {
     private String password;
     private String email;
     private String telephone;
-
+    @Transient
+    private boolean enabled = true;
 
     //private String photoProfil;
     //Adresse
@@ -33,6 +36,10 @@ public class Utilisateur {
             @AttributeOverride( name = "ville", column = @Column(name = "adresse_ville")),
     })*/
     private Adresse adresse;
+
+    public boolean isEnabled() {
+        return this.enabled;
+    }
 /*
     public Utilisateur(String nom, String prenom, String password, String email, String telephone, Adresse adresse) {
         this.nom=nom;

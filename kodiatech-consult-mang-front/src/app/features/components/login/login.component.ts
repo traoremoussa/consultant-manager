@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthenticationRequest } from '../../models/authentication-request-model';
 import { AuthService } from '../../services/auth.service';
 import { StorageService } from '../../services/storage.service';
@@ -19,7 +20,9 @@ export class LoginComponent implements OnInit {
  isLoginFailed = false;
  errorMessage = '';
 
-  constructor(private formBuilder: FormBuilder,private authService:AuthService, private storageService: StorageService) { }
+  constructor(private formBuilder: FormBuilder,
+    private authService:AuthService, private router: Router,
+    private storageService: StorageService) { }
 
   ngOnInit(): void {
     this.mainForm = this.formBuilder.group({
@@ -35,12 +38,13 @@ export class LoginComponent implements OnInit {
 
   onSubmit(){
     this.authenticationRequest = this.mainForm.value;
-    alert(this.authenticationRequest);
+    //alert(this.authenticationRequest);
     this.authService.login(this.authenticationRequest).subscribe({
       next: data => {
         //le retour
         this.storageService.saveUser(data);
-console.log("-------------------------------"+this.storageService.getUser())
+      //  sessionStorage.setItem('authenticationToken',data.authenticationToken);
+        //console.log("-------------------------------"+this.storageService.getUser())
         this.isLoginFailed = false;
         this.isLoggedIn = true;
 
@@ -54,5 +58,6 @@ console.log("-------------------------------"+this.storageService.getUser())
 }
 reloadPage(): void {
   window.location.reload();
+  this.router.navigateByUrl('/');
 }
 }

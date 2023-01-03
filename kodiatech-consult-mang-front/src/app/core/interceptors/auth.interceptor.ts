@@ -2,11 +2,12 @@ import { HttpEvent, HttpHandler, HttpHeaders, HttpInterceptor, HttpRequest } fro
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { AuthService } from "src/app/features/services/auth.service";
+import { StorageService } from "src/app/features/services/storage.service";
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService,private storageService: StorageService) {}
 /**
  *
  *  vous retournez  next.handle()  en y passant la nouvelle
@@ -20,7 +21,7 @@ export class AuthInterceptor implements HttpInterceptor {
       const httpOptions = {
         headers: new HttpHeaders({ 'Content-Type': 'application/json' })
       };
-    const modifiedReq = req.clone({    headers: new HttpHeaders({ 'Content-Type': 'application/json' }) });
+    const modifiedReq = req.clone({    headers });
 
     return next.handle(modifiedReq);
 

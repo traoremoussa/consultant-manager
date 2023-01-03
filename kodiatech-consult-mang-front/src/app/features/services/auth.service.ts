@@ -22,16 +22,20 @@ export class AuthService {
   constructor(private http: HttpClient
    ) { }
 
-    getToken() {
-      return 'Method not implemented.';
+    getToken() {/*
+      let token =  sessionStorage.getItem('authenticationToken')  as string;
+      return token.length >0? token:'';*/
+      return '';
      }
 
      login(authenticationRequest:AuthenticationRequest): Observable<any> {
+      sessionStorage.setItem('user',"");
       return this.http.post(
         environment.apiUrl + '/v1/auth/authenticate',
         authenticationRequest,httpOptions
 
       );
+
     }
 
 }

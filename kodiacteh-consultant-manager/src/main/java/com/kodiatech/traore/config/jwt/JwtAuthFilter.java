@@ -1,16 +1,15 @@
 package com.kodiatech.traore.config.jwt;
 
 import com.kodiatech.traore.auth.dao.UserDao;
+import com.kodiatech.traore.auth.exception.JwtTokenMissingException;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
@@ -35,8 +34,8 @@ public class JwtAuthFilter extends OncePerRequestFilter {
                                     FilterChain filterChain) throws ServletException, IOException {
 
         final String authHeader = request.getHeader(AUTHORIZATION);
-        final String userEmail;
-        final String jwtToken;
+        String userEmail = null;
+        String jwtToken = null;
 
 
         if (Objects.isNull(authHeader) || !authHeader.startsWith("Bearer")) {
@@ -44,10 +43,12 @@ public class JwtAuthFilter extends OncePerRequestFilter {
             return;
         }
 
-       //ON  recupere le header token
-        jwtToken = authHeader.substring(7);
-        userEmail = jwtUtils.extractUsername(jwtToken);
 
+        if(authHeader.length()>7) {
+    //ON  recupere le header token
+    jwtToken = authHeader.substring("Bearer".length() + 1);
+    userEmail = jwtUtils.extractUsername(jwtToken);
+}
         if (userEmail != null && SecurityContextHolder.getContext().getAuthentication() == null) {
             UserDetails userDetails = userDao.findByUsername(userEmail);
 
@@ -56,6 +57,7 @@ public class JwtAuthFilter extends OncePerRequestFilter {
                 UsernamePasswordAuthenticationToken authToken =
                         new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
                 authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+
                 SecurityContextHolder.getContext().setAuthentication(authToken);
             }
         }

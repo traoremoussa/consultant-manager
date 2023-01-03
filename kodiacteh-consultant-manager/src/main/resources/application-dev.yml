@@ -2,9 +2,14 @@ spring:
   data:
     mongodb:
       uri: mongodb://localhost:27017/consultant_db
+      ##log
   output:
     ansi:
       enabled: ALWAYS
+  mvc:
+    problemdetails:
+      enabled: true
+
 ## comme je n'ai pas de mot de passe et user donc je laisse comme
 ## bdd est creee automatiquement par mongo
 ## https://stackoverflow.com/questions/56371736/spring-boot-mongo-db-yml-configuration

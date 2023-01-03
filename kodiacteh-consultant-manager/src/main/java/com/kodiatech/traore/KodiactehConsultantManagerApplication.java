@@ -6,27 +6,36 @@ import com.kodiatech.traore.profiles.repositories.UtilisateurRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 
-@SpringBootApplication
+import java.util.function.Function;
+
+@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class })
 public class KodiactehConsultantManagerApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(KodiactehConsultantManagerApplication.class, args);
 	}
-@Bean
+
+	/*
+	@Bean
 	public CommandLineRunner commandLineRunner(UtilisateurRepository utilisateurRepository){
 		return e->{
-		/*	final Adresse address = new Adresse("Thomas edison", "bat a, appt 68", "31400", "Toulouse");
+		final Adresse address = new Adresse("Thomas edison", "bat a, appt 68", "31400", "Toulouse");
 
 			final Utilisateur utilisateur=new Utilisateur("Traore","moussa","password8","hij@gmail.com","00-00-00-00-00-00",address);
 
 			//utilisateurRepository.save(utilisateur);
 
-		 */
+
 		};
 
 	}
+*/
 
-
+	@Bean
+	public Function<String, String> reverse() {
+		return (s) -> String.valueOf(new StringBuilder(s).reverse());
+	}
 }

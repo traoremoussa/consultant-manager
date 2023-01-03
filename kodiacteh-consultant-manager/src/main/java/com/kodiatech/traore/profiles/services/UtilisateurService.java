@@ -3,6 +3,8 @@ package com.kodiatech.traore.profiles.services;
 import com.kodiatech.traore.profiles.exceptions.UtilisateurNotFoundException;
 import com.kodiatech.traore.profiles.models.Utilisateur;
 import com.kodiatech.traore.profiles.repositories.UtilisateurRepository;
+import io.micrometer.observation.Observation;
+import io.micrometer.observation.ObservationRegistry;
 import lombok.AllArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -16,6 +18,9 @@ public class UtilisateurService {
     private final UtilisateurRepository utilisateurRepository;
     private final PasswordEncoder passwordEncoder;
 
+    //Observation
+    private  ObservationRegistry observationRegistry;
+
     public Utilisateur addConsultant(Utilisateur util){
 
         Utilisateur utilisateur = new Utilisateur();
@@ -26,7 +31,10 @@ public class UtilisateurService {
         utilisateur.setTelephone(util.getTelephone());
         utilisateur.setPassword(passwordEncoder.encode(util.getPassword()));
           utilisateur.setAdresse(util.getAdresse());
-        return utilisateurRepository.save(utilisateur);
+
+
+         return Observation.createNotStarted("addConsult",observationRegistry)
+                 .observe(()->(utilisateurRepository.save(utilisateur)));
     }
 
     public Optional<Utilisateur> findByEmail(String email){

@@ -42,7 +42,7 @@ public class UtilisateurController {
 
     @PostMapping("/addCons")
     public ResponseEntity<String> addConsultant(@RequestBody Utilisateur util){
-        LOG.info("Saving user.");
+        LOG.info("Saving user.{}",util);
         boolean userExists = utilisateurService
                 .findByEmail(util.getEmail())
                 .isPresent();
