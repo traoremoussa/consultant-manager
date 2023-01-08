@@ -30,7 +30,13 @@ import java.util.function.Function;
 @RequiredArgsConstructor //
 public class SecurityConfig {
     private final JwtAuthFilter jwtAuthFilter;
-    private final UserDao userDao;
+
+
+    /**
+     * cette methode est alimentée dans ApplicationConfig.java pricipe(@Bean)
+     * https://www.baeldung.com/spring-bean
+     */
+    private final AuthenticationProvider authenticationProvider;
 
 
     @Bean
@@ -39,51 +45,20 @@ public class SecurityConfig {
                 .csrf().disable()
                 .authorizeHttpRequests()
                 .requestMatchers("/*/*/auth/**").permitAll()
+                .requestMatchers("/api/v1/consultant/addCons").permitAll()
+                //
                 .requestMatchers("/**").permitAll()
+                //
                 .anyRequest()
                 .authenticated()
                 .and()
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)//session etat n'est sauver
                 .and()
-                .authenticationProvider(authenticationProvider())
+                .authenticationProvider(authenticationProvider)
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
         ;
         return http.build();
-    }
-
-    @Bean
-    public AuthenticationProvider authenticationProvider() {
-        final DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
-        authenticationProvider.setUserDetailsService(userDetailsService());
-        authenticationProvider.setPasswordEncoder(passwordEncoder());
-        return authenticationProvider;
-    }
-
-    @Bean
-    public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
-        return config.getAuthenticationManager();
-
-    }
-
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        //comme actuellement je crypt pas
-        //  return new BCryptPasswordEncoder();
-
-        return NoOpPasswordEncoder.getInstance();
-    }
-
-
-    // on doit creer une class impl pour
-    @Bean
-    public UserDetailsService userDetailsService() {
-        return new UserDetailsService() {
-            @Override
-            public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-                return userDao.findByUsername(email);
-            }
-        };
     }
 
 

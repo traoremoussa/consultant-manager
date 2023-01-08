@@ -56,4 +56,5 @@ public class UtilisateurController {
         utilisateurService.addConsultant(util);
         return ResponseEntity.ok("Add succes");
     }
+
 }

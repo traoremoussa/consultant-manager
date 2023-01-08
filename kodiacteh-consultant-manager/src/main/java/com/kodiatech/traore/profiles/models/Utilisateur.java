@@ -1,19 +1,24 @@
 package com.kodiatech.traore.profiles.models;
 
 
-import jakarta.persistence.Embedded;
-import jakarta.persistence.Id;
-import jakarta.persistence.Transient;
+import com.kodiatech.traore.auth.models.Role;
+import jakarta.persistence.*;
 import lombok.*;
 
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import java.util.Collection;
+import java.util.List;
 
 @AllArgsConstructor
-
 @NoArgsConstructor
+@Builder
 @Data
 @Document("utilisateur")
-public class Utilisateur {
+public class Utilisateur implements UserDetails {
 
     @Id
     private String id;
@@ -22,8 +27,9 @@ public class Utilisateur {
     private String password;
     private String email;
     private String telephone;
-    @Transient
-    private boolean enabled = true;
+
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
     //private String photoProfil;
     //Adresse
@@ -37,9 +43,7 @@ public class Utilisateur {
     })*/
     private Adresse adresse;
 
-    public boolean isEnabled() {
-        return this.enabled;
-    }
+
 /*
     public Utilisateur(String nom, String prenom, String password, String email, String telephone, Adresse adresse) {
         this.nom=nom;
@@ -49,4 +53,58 @@ public class Utilisateur {
         this.telephone=telephone;
         this.adresse=adresse;
     }*/
+
+
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return List.of(new SimpleGrantedAuthority(role.name()));
+    }
+
+    @Override
+    public String getPassword() {
+        return password;
+    }
+
+    @Override
+    public String getUsername() {
+        return email;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
 }
+
+/*POSTMAN
+  {
+
+        "nom": "diaby",
+        "prenom": "traore",
+        "password": "password8",
+        "email": "klm@gmail.com",
+        "telephone": "00-00-00-00-00-00",
+        "adresse": {
+            "adresse": "Thomas edison",
+            "complementAdresse": "bat a, appt 68",
+            "codePostal": "31400",
+            "ville": "Toulouse"
+        }
+    }
+ */

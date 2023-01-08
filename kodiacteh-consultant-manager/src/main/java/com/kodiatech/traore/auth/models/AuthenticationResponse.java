@@ -18,4 +18,6 @@ public class AuthenticationResponse {
     private String id;
     private String badRequest;
 
+
+
 }

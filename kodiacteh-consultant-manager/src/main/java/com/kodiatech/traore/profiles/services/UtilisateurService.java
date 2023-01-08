@@ -1,5 +1,6 @@
 package com.kodiatech.traore.profiles.services;
 
+import com.kodiatech.traore.auth.models.Role;
 import com.kodiatech.traore.profiles.exceptions.UtilisateurNotFoundException;
 import com.kodiatech.traore.profiles.models.Utilisateur;
 import com.kodiatech.traore.profiles.repositories.UtilisateurRepository;
@@ -19,32 +20,35 @@ public class UtilisateurService {
     private final PasswordEncoder passwordEncoder;
 
     //Observation
-    private  ObservationRegistry observationRegistry;
+    private ObservationRegistry observationRegistry;
 
-    public Utilisateur addConsultant(Utilisateur util){
+    public Utilisateur addConsultant(Utilisateur util) {
 
-        Utilisateur utilisateur = new Utilisateur();
+        var utilisateur = Utilisateur.builder()
 
-        utilisateur.setNom(util.getNom());
-        utilisateur.setPrenom(util.getPrenom());
-        utilisateur.setEmail(util.getEmail());
-        utilisateur.setTelephone(util.getTelephone());
-        utilisateur.setPassword(passwordEncoder.encode(util.getPassword()));
-          utilisateur.setAdresse(util.getAdresse());
+                .nom(util.getNom())
+                .prenom(util.getPrenom())
+                .email(util.getEmail())
+                .telephone(util.getTelephone())
+                .password(passwordEncoder.encode(util.getPassword()))
+                .adresse(util.getAdresse())
+                .role(Role.USER)
+                .build();
 
-
-         return Observation.createNotStarted("addConsult",observationRegistry)
-                 .observe(()->(utilisateurRepository.save(utilisateur)));
+//TODO envoye message et token
+        return Observation.createNotStarted("addConsult", observationRegistry)
+                .observe(() -> (utilisateurRepository.save(utilisateur)));
     }
 
-    public Optional<Utilisateur> findByEmail(String email){
+    public Optional<Utilisateur> findByEmail(String email) {
         return utilisateurRepository.findByEmail(email);
     }
-   public List<Utilisateur> consultants(){
+
+    public List<Utilisateur> consultants() {
         return utilisateurRepository.findAll();
     }
 
-    public Utilisateur consultantById(String id){
-        return utilisateurRepository.findById(id).orElseThrow(()-> new UtilisateurNotFoundException(id));
+    public Utilisateur consultantById(String id) {
+        return utilisateurRepository.findById(id).orElseThrow(() -> new UtilisateurNotFoundException(id));
     }
 }
