@@ -1,7 +1,9 @@
 <div class="login-main">
   <mat-card [formGroup]="mainForm" class="main-form" >
     <mat-card-title>Identifiez vous</mat-card-title>
-
+    <mat-error *ngIf="isLoginFailed">
+      The username and password were not recognized
+    </mat-error>
     <mat-form-field >
       <mat-label>Email</mat-label>
       <input type="text" matInput formControlName="email" />

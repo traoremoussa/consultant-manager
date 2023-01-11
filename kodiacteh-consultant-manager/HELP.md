@@ -15,3 +15,8 @@ The following guides illustrate how to use some features concretely:
 * [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
 * [Building REST services with Spring](https://spring.io/guides/tutorials/rest/)
 
+
+
+* [spring securit mongo](https://www.bezkoder.com/spring-boot-mongodb-login-example/)
+* [Spring Boot 3 + Spring Security 6 - JWT Authentication and Authorisation [NEW] [2023]](https://www.youtube.com/watch?v=KxqlJblhzfI)
+* [Spring Boot 3.0](https://www.youtube.com/watch?v=4_jey1hfEw0)

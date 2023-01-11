@@ -32,7 +32,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
                 .orElseThrow(() -> new UsernameNotFoundException("No user " +
                         "Found with username : " + usernameEmail));
 
-
+//deja j'ai herité je ne vois interet
         return new org.springframework.security
                 .core.userdetails.User(utilisateur.getEmail(), utilisateur.getPassword(),
                 utilisateur.isEnabled(), true, true,

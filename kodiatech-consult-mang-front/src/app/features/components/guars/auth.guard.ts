@@ -14,7 +14,7 @@ export class AuthGuard implements CanActivate {
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     const token = this.storageService.getUser();
-   // alert(token.id)
+   alert(token.id)
     if (token.id) {
       return true;
     } else {
@@ -23,6 +23,8 @@ export class AuthGuard implements CanActivate {
     }
   }
 }
+
+
 /*  return !!token;
 
 Pour comprendre pourquoi, remarquez d'abord que  !token  retourne  true

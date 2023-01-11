@@ -29,7 +29,7 @@ export class AuthService {
      }
 
      login(authenticationRequest:AuthenticationRequest): Observable<any> {
-      sessionStorage.setItem('user',"");
+    //  sessionStorage.setItem('user',"");
       return this.http.post(
         environment.apiUrl + '/v1/auth/authenticate',
         authenticationRequest,httpOptions

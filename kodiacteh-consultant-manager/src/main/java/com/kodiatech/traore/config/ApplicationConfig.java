@@ -1,5 +1,6 @@
 package com.kodiatech.traore.config;
 
+import com.kodiatech.traore.auth.services.UserDetailsServiceImpl;
 import com.kodiatech.traore.profiles.repositories.UtilisateurRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -22,7 +23,7 @@ public class ApplicationConfig {
 
     private final UtilisateurRepository utilisateurRepository;
 
-
+    private final UserDetailsServiceImpl userDetailsService;
     /*
         @Bean
         public UserDetailsService userDetailsService() {
@@ -35,6 +36,11 @@ public class ApplicationConfig {
             };
         }
     */
+
+    /**
+     * j'avais fais une class (UserDetailsServiceImpl) mais pas encore utiliser
+     * @return
+     */
     @Bean
     public UserDetailsService userDetailsService() {
         return email -> utilisateurRepository.findByEmail(email)
@@ -49,6 +55,7 @@ public class ApplicationConfig {
         return authProvider;
     }
 
+    //utiliser par authentication manager (dans service ) je sais pas
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
         return config.getAuthenticationManager();
