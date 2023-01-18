@@ -1,10 +1,17 @@
 /* footer section styling */
 footer{
+  position: relative;
+
+  background: rgb(79, 69, 69);
+  left: 0;
+  bottom: 0;
+  width: 100%;
+
+
+
   display: flex;
   justify-content: space-around;
   align-items: center;
-
-  background: #111;
   padding: 14px;
   color: #fff;
   text-align: center;

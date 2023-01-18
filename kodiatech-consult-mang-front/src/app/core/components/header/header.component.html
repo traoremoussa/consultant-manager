@@ -1,9 +1,24 @@
 <mat-toolbar color="primary">
   <span>Koditatech</span>
   <span class="menu-spacer"></span>
-  <ul>
+  <button mat-button [matMenuTriggerFor]="userMenu">
+    <mat-icon>person</mat-icon>
+    <span fxShow fxHide.xs>
+    Nom(image)
+    </span>
+  </button>
 
-    <li><a routerLink="">Utilisateur connecter</a></li>
-    <li><a routerLink="/login"> connecter/decon</a></li>
-  </ul>
+  <mat-menu #userMenu="matMenu" xPosition="before" yPosition="above" [overlapTrigger]="false">
+
+    <a mat-menu-item [routerLink]="['/features/stepper']">
+      <mat-icon>person</mat-icon>
+      <span>Account</span>
+    </a>
+
+    <a mat-menu-item [routerLink]="['/features/login']">
+      <mat-icon>exit_to_app</mat-icon>
+      <span>Deconnecte</span>
+    </a>
+
+  </mat-menu>
 </mat-toolbar>

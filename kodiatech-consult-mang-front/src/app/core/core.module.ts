@@ -1,3 +1,4 @@
+import { CoreRoutingModule } from './core-routing.module';
 import { SharedModule } from './../shared/shared.module';
 import { LOCALE_ID, NgModule } from '@angular/core';
 import { CommonModule, registerLocaleData } from '@angular/common';
@@ -11,11 +12,13 @@ import { FooterComponent } from './components/footer/footer.component';
 import { httpInterceptorProviders } from './interceptors/multiple-interceptor';
 
 import * as fr from '@angular/common/locales/fr';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    PageNotFoundComponent
   ],
   imports: [
     CommonModule,
@@ -23,6 +26,7 @@ import * as fr from '@angular/common/locales/fr';
     RouterModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    CoreRoutingModule
 
   ],
   providers:[
@@ -31,7 +35,13 @@ import * as fr from '@angular/common/locales/fr';
   //intercepteur
   httpInterceptorProviders
  ],
-  exports:[HeaderComponent,FooterComponent,BrowserAnimationsModule]
+ //n'oublie pas d'exporter
+  exports:[
+    HeaderComponent,
+    FooterComponent,
+    BrowserAnimationsModule,
+    CoreRoutingModule
+  ]
 })
 export class CoreModule {
   constructor() {

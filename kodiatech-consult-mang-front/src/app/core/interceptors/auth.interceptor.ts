@@ -15,15 +15,16 @@ export class AuthInterceptor implements HttpInterceptor {
 
  */
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-
+    if(this.storageService.getToken()){
+    alert(` InTer: ${this.storageService.getToken()}`)
     const headers = new HttpHeaders()
-      .append('Authorization', `Bearer ${this.authService.getToken()}`);
+      .append('Authorization', `Bearer ${this.storageService.getToken()}`);
       const httpOptions = {
         headers: new HttpHeaders({ 'Content-Type': 'application/json' })
       };
-    const modifiedReq = req.clone({    headers });
-
-    return next.handle(modifiedReq);
+      req= req.clone({    headers });
+    }
+    return next.handle(req);
 
   }
 }

@@ -29,7 +29,7 @@ public class UtilisateurController {
         LOG.info("Getting all users.");
         return ResponseEntity.ok(utilisateurService.consultants());
     }
-    @GetMapping("/consultant/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<Utilisateur> consultantsById(@PathVariable String id){
         try {
             LOG.info("---------------Getting  users.");

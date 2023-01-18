@@ -1,19 +1,23 @@
+import { ConsultantService } from './../../services/consultant.service';
 import { Country } from '@angular-material-extensions/select-country';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Observable, tap } from 'rxjs';
+import { Consultant } from '../../models/consultant-model';
+import { StorageService } from '../../services/storage.service';
 
 @Component({
   selector: 'app-inscription',
   templateUrl: './inscription.component.html',
   styleUrls: ['./inscription.component.scss']
 })
-export class InscriptionComponent implements OnInit {
+export class InscriptionComponent implements OnInit, OnDestroy{
 //je vais faire un seul group de form
 // et les autres form control
 
 mainForm!: FormGroup;
 
-
+consultant$!:Observable<Consultant>;
 
 
   defaultValue: Country = {
@@ -23,10 +27,16 @@ mainForm!: FormGroup;
     numericCode: '250',
     callingCode: '+33'
   };
-  constructor(    private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder,
+    private consultantService:ConsultantService,
+    private storageService: StorageService
+    ) { }
+
 
   ngOnInit(): void {
     this.initMainForm();
+    this.consultant();
+    this.mainForm.setValue(this.consultant$.subscribe(console.log));
   }
 
 
@@ -46,5 +56,18 @@ mainForm!: FormGroup;
   onSubmit(){
   // TODO: Use EventEmitter with form value
   console.warn(this.mainForm.value);
+  }
+
+  private consultant():void{
+    let idConsultant= this.storageService.getUser().id;
+
+    this.consultant$=this.consultantService.getConsultant(idConsultant )
+    .pipe(tap(()=> console.log("charger")));
+  }
+
+  //TODO usubscribtion
+
+  ngOnDestroy(): void {
+    //this.consultant$.unsubscribe();
   }
 }

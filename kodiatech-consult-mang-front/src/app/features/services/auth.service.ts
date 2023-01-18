@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { AuthenticationRequest } from '../models/authentication-request-model';
+import { StorageService } from './storage.service';
 
 
 const httpOptions = {
@@ -19,14 +20,10 @@ export class AuthService {
 
   authenticated = false;
 
-  constructor(private http: HttpClient
+  constructor(private http: HttpClient,
+    private storageService: StorageService
    ) { }
 
-    getToken() {/*
-      let token =  sessionStorage.getItem('authenticationToken')  as string;
-      return token.length >0? token:'';*/
-      return '';
-     }
 
      login(authenticationRequest:AuthenticationRequest): Observable<any> {
     //  sessionStorage.setItem('user',"");
@@ -37,5 +34,15 @@ export class AuthService {
       );
 
     }
+
+    logout() {
+      this.storageService.remove();
+    }
+    getToken() {/*
+      let token =  sessionStorage.getItem('authenticationToken')  as string;
+      return token.length >0? token:'';*/
+      return '';
+     }
+
 
 }

@@ -39,4 +39,11 @@ export class StorageService {
   public remove(){
     window.sessionStorage.removeItem(USER_KEY);
   }
+  public getToken(){
+    const user = this.getUser();
+    if (user) {
+      return user.authenticationToken;
+    }
+    return '';
+  }
 }

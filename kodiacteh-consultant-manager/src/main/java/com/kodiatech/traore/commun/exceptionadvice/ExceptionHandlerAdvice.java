@@ -1,5 +1,6 @@
-package com.kodiatech.traore.profiles.exceptions;
+package com.kodiatech.traore.commun.exceptionadvice;
 
+import com.kodiatech.traore.profiles.exceptions.UtilisateurNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ProblemDetail;
 import org.springframework.http.ResponseEntity;

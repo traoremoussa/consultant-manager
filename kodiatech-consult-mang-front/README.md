@@ -28,3 +28,14 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 
 https://stackblitz.com/edit/angular-material-stepper-with-component-steps?file=app%2Fstepper-overview-example.html
+
+
+## css
+carousole image < >
+cascade
+footer fixed
+sticky pour menu
+https://www.w3schools.com/howto/howto_css_sticky_element.asp
+Bootstrap 4 Scrollspy
+https://www.w3schools.com/bootstrap4/bootstrap_scrollspy.asp
+https://www.w3schools.com/bootstrap4/bootstrap_flex.asp

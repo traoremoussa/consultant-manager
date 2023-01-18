@@ -12,6 +12,7 @@ import{MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatSelectModule} from '@angular/material/select';
 import {MatStepperModule} from '@angular/material/stepper';
 import { MatSelectCountryModule } from '@angular-material-extensions/select-country';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   imports: [
@@ -29,7 +30,9 @@ import { MatSelectCountryModule } from '@angular-material-extensions/select-coun
     MatRadioModule,
     MatProgressSpinnerModule,
     MatSelectModule,
-    MatStepperModule,MatSelectCountryModule
+    MatStepperModule,
+    MatSelectCountryModule,
+    MatMenuModule
 
   ]
 })

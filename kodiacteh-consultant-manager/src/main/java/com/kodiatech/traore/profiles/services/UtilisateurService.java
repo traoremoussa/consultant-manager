@@ -7,9 +7,12 @@ import com.kodiatech.traore.profiles.repositories.UtilisateurRepository;
 import io.micrometer.observation.Observation;
 import io.micrometer.observation.ObservationRegistry;
 import lombok.AllArgsConstructor;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import javax.swing.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,7 +25,11 @@ public class UtilisateurService {
     //Observation
     private ObservationRegistry observationRegistry;
 
+    private List<Utilisateur> utilisateurs= new ArrayList<>();
+
+@SuppressWarnings("syntheticAccess" )
     public Utilisateur addConsultant(Utilisateur util) {
+
 
         var utilisateur = Utilisateur.builder()
 
@@ -35,7 +42,7 @@ public class UtilisateurService {
                 .role(Role.USER)
                 .build();
 
-//TODO envoye message et token
+//TODO envoye message et token pour valider l'inscruption
         return Observation.createNotStarted("addConsult", observationRegistry)
                 .observe(() -> (utilisateurRepository.save(utilisateur)));
     }
@@ -43,9 +50,18 @@ public class UtilisateurService {
     public Optional<Utilisateur> findByEmail(String email) {
         return utilisateurRepository.findByEmail(email);
     }
+    /**
+     * Method to get the employee default values
+     * First time, it'' get from database
+     * Next time onwards it will get it from Cache
+     *
+     * @return employees
+     */
 
+    @Cacheable("utilisateurs")
     public List<Utilisateur> consultants() {
-        return utilisateurRepository.findAll();
+        utilisateurs=utilisateurRepository.findAll();
+        return utilisateurs;
     }
 
     public Utilisateur consultantById(String id) {
