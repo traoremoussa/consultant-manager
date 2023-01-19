@@ -1,12 +1,10 @@
 /* footer section styling */
-footer{
+footer {
   position: relative;
-
-  background: rgb(79, 69, 69);
+  background: rgb(24, 21, 21);
   left: 0;
   bottom: 0;
   width: 100%;
-
 
 
   display: flex;
@@ -16,12 +14,10 @@ footer{
   color: #fff;
   text-align: center;
 }
-footer span a{
+footer span a {
   color: crimson;
   text-decoration: none;
 }
-footer span a:hover{
+footer span a:hover {
   text-decoration: underline;
 }
-
-

@@ -1,5 +1,6 @@
 package com.kodiatech.traore.profiles.controllers;
 
+import com.kodiatech.traore.profiles.dto.UtilisateurDTO;
 import com.kodiatech.traore.profiles.exceptions.UtilisateurNotFoundException;
 import com.kodiatech.traore.profiles.models.Utilisateur;
 import com.kodiatech.traore.profiles.services.UtilisateurService;
@@ -29,8 +30,19 @@ public class UtilisateurController {
         LOG.info("Getting all users.");
         return ResponseEntity.ok(utilisateurService.consultants());
     }
+    @GetMapping("all-info/{id}")
+    public ResponseEntity<Utilisateur> consultantsByIdAllInfo(@PathVariable String id){
+        try {
+            LOG.info("---------------Getting  users.");
+            return ResponseEntity.ok(utilisateurService.consultantAllInfoById(id));
+        } catch (UtilisateurNotFoundException exc) {
+            throw new UtilisateurNotFoundException(
+                    HttpStatus.NOT_FOUND.toString());
+        }
+    }
+
     @GetMapping("/{id}")
-    public ResponseEntity<Utilisateur> consultantsById(@PathVariable String id){
+    public ResponseEntity<UtilisateurDTO> consultantsById(@PathVariable String id){
         try {
             LOG.info("---------------Getting  users.");
             return ResponseEntity.ok(utilisateurService.consultantById(id));

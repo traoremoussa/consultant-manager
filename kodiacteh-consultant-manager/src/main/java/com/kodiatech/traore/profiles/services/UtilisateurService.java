@@ -1,7 +1,9 @@
 package com.kodiatech.traore.profiles.services;
 
 import com.kodiatech.traore.auth.models.Role;
+import com.kodiatech.traore.profiles.dto.UtilisateurDTO;
 import com.kodiatech.traore.profiles.exceptions.UtilisateurNotFoundException;
+import com.kodiatech.traore.profiles.mapper.UtilisateurMapper;
 import com.kodiatech.traore.profiles.models.Utilisateur;
 import com.kodiatech.traore.profiles.repositories.UtilisateurRepository;
 import io.micrometer.observation.Observation;
@@ -21,7 +23,8 @@ import java.util.Optional;
 public class UtilisateurService {
     private final UtilisateurRepository utilisateurRepository;
     private final PasswordEncoder passwordEncoder;
-
+    //inj
+    private final UtilisateurMapper utilisateurMapper;
     //Observation
     private ObservationRegistry observationRegistry;
 
@@ -64,7 +67,13 @@ public class UtilisateurService {
         return utilisateurs;
     }
 
-    public Utilisateur consultantById(String id) {
+    public UtilisateurDTO consultantById(String id) {
+        Utilisateur util= utilisateurRepository.findById(id).orElseThrow(() -> new UtilisateurNotFoundException(id));
+
+        return utilisateurMapper.utilisateurToUtilisateurDTO(util);
+    }
+
+    public Utilisateur consultantAllInfoById(String id) {
         return utilisateurRepository.findById(id).orElseThrow(() -> new UtilisateurNotFoundException(id));
     }
 }

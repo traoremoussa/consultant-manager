@@ -12,7 +12,7 @@ export class ConsultantService {
 
   constructor(private http: HttpClient) { }
 
-  getConsultant(id:string):Observable<Consultant>{
+ public getConsultant(id:string):Observable<Consultant>{
     alert(` Ins: ${id}`)
     return this.http.get<Consultant>(`${environment.apiUrl}${ConsultantEndPointURI.ENDPOINT_CONSULTANT}${id}`);
   }
