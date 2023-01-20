@@ -1,10 +1,13 @@
+
+<ngx-loading-bar   [height]="'7px'"[color]="'#28d'"></ngx-loading-bar>
 <mat-toolbar color="primary"  class="fixed-header">
+  <mat-toolbar-row>
   <span>Koditatech</span>
   <span class="menu-spacer"></span>
   <button mat-button [matMenuTriggerFor]="userMenu">
     <mat-icon>person</mat-icon>
     <span fxShow fxHide.xs>
-    Nom(image)
+      {{currentUser.nom}}(image)
     </span>
   </button>
 
@@ -15,10 +18,12 @@
       <span>Account</span>
     </a>
 
-    <a mat-menu-item [routerLink]="['/features/login']">
+    <a mat-menu-item (click)="dec_con()">
       <mat-icon>exit_to_app</mat-icon>
-      <span>Deconnecte</span>
+      <span>{{dec_conne}}</span>
     </a>
 
   </mat-menu>
+</mat-toolbar-row>
 </mat-toolbar>
+

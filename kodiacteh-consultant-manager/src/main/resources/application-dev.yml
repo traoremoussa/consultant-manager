@@ -17,7 +17,18 @@ spring:
 logging:
   level:
     datasource-query-logger: INFO
-    org.springframework.data: DEBUG
+    org:
+      springframework:
+         data: DEBUG
+         security: DEBUG
+         web: ERROR
+      hibernate: DEBUG
+      apache:
+        commons:
+          dbcp2: DEBUG
+  ## genereted file log
+  path: concretepage/logs
+
 
 server:
   error:

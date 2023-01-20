@@ -32,6 +32,7 @@ public class AuthenticationService {
         return AuthenticationResponse.builder()
                 .authenticationToken (jwtToken)
                 .id(utilisateur.getId())
+                .nom(utilisateur.getNom())
                 .build();
     }
 }

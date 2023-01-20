@@ -35,6 +35,8 @@ public class SecurityConfig {
     /**
      * cette methode est alimentée dans ApplicationConfig.java pricipe(@Bean)
      * https://www.baeldung.com/spring-bean
+     * probleme de reponse http code status
+     * https://www.baeldung.com/spring-cors
      */
     private final AuthenticationProvider authenticationProvider;
 

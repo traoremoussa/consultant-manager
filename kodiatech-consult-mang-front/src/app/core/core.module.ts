@@ -13,6 +13,8 @@ import { httpInterceptorProviders } from './interceptors/multiple-interceptor';
 
 import * as fr from '@angular/common/locales/fr';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+// for HttpClient import:
+import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     RouterModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    CoreRoutingModule
+    CoreRoutingModule,
+    LoadingBarHttpClientModule
 
   ],
   providers:[
@@ -40,7 +43,8 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     HeaderComponent,
     FooterComponent,
     BrowserAnimationsModule,
-    CoreRoutingModule
+    CoreRoutingModule,
+    LoadingBarHttpClientModule
   ]
 })
 export class CoreModule {

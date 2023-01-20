@@ -25,5 +25,9 @@ li>a {
   top: 0;
   left: 0;
   z-index: 2;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.24);
+  box-shadow: 4px 4px 4px rgba(22, 21, 21, 0.24);
+}
+.mat-toolbar.mat-primary {
+  background: #1e1b3b;
+  color: #fff;
 }

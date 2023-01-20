@@ -17,6 +17,7 @@ public class AuthenticationResponse {
     //private Instant expiresAt;
     private String id;
     private String badRequest;
+    private String nom;
 
 
 

@@ -39,3 +39,8 @@ https://www.w3schools.com/howto/howto_css_sticky_element.asp
 Bootstrap 4 Scrollspy
 https://www.w3schools.com/bootstrap4/bootstrap_scrollspy.asp
 https://www.w3schools.com/bootstrap4/bootstrap_flex.asp
+
+
+##spiner
+** https://github.com/aitboudad/ngx-loading-bar
+#16103e;

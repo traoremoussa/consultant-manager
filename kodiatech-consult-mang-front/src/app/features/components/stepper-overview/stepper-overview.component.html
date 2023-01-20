@@ -3,22 +3,19 @@
   <mat-step >
     <ng-template matStepLabel>Accueil</ng-template>
     <app-home></app-home>
-    <button  mat-raised-button color="primary" matStepperNext>Demarrer</button>
+    <button  mat-raised-button color="primary" matStepperNext>{{demarer|uppercase}}</button>
     </mat-step>
 
 
 
     <mat-step >
       <ng-template matStepLabel>Information personnelles</ng-template>
-
-
-      <app-inscription></app-inscription>
-      <p>Socialize with each other.</p>
-
       <div>
-        <button   mat-raised-button color="primary" matStepperPrevious>Back</button>
-        <button  mat-raised-button color="primary" matStepperNext>Next</button>
+        <button   mat-raised-button color="primary" matStepperPrevious>{{pre|uppercase}}</button>
+        <button  mat-raised-button color="primary" matStepperNext style="float:right;">{{suivant|uppercase}}</button>
       </div>
+      <app-inscription ></app-inscription>
+
     </mat-step>
 
     <mat-step >
@@ -28,7 +25,7 @@
       <p>Socialize with each other.</p>
 
       <div>
-        <button  mat-raised-button color="primary" matStepperPrevious>Back</button>
+        <button  mat-raised-button color="primary" matStepperPrevious>{{pre|uppercase}}</button>
 
       </div>
     </mat-step>
