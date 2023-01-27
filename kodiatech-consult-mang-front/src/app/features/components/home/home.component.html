@@ -1,12 +1,16 @@
 <div class="home">
-<p style="color: green">Bonjour et bienvenue sur votre espace de candidature</p>
-  <p-timeline [value]="events" >
-  <ng-template pTemplate="content" let-event>
-      {{event.status}}
-  </ng-template>
-</p-timeline>
-<hr/>
-<h3>
-  <strong>{{ currentUser.id }}</strong> <a href=""(click) ="clean()">Profile</a>
-</h3>
+<div style=" width: 100%;text-align: center; height: 50px; margin-top: 20px;"><p>Merci par avance et à bientôt.</p></div>
+  <div style="width: 100%;margin-top: 100px; margin-left: -150px;">
+    <p-timeline [value]="events">
+      <ng-template pTemplate="content" let-event>
+          {{event.status}}
+      </ng-template>
+  </p-timeline>
+</div>
+  <div style=" width: 100%;text-align: center; height: 50px; margin-bottom: 30px; line-height: 2.5;">
+  <p style="color: green;font-size: 35px;">
+    Bonjour et bienvenue sur votre espace de candidature
+  </p>
+  <p>Pour nous aider à mieux vous connaître, voici quelques étapes à suivre et à compléter :</p>
+</div>
 </div>

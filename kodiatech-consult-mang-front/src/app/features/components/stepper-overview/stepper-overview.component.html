@@ -2,8 +2,9 @@
 <mat-horizontal-stepper [linear]="isLinear" #stepper class="stepper-card">
   <mat-step >
     <ng-template matStepLabel>Accueil</ng-template>
-    <app-home></app-home>
-    <button  mat-raised-button color="primary" matStepperNext>{{demarer|uppercase}}</button>
+
+    <button  mat-raised-button color="primary" matStepperNext style="float:right; margin-top: -100px;" >{{demarer|uppercase}}</button>
+    <app-home ></app-home>
     </mat-step>
 
 
@@ -17,7 +18,16 @@
       <app-inscription ></app-inscription>
 
     </mat-step>
+    <mat-step >
+      <ng-template matStepLabel>Remplissage du CV</ng-template>
 
+      <div>
+        <button  mat-raised-button color="primary" matStepperPrevious>{{pre|uppercase}}</button>
+        <button  mat-raised-button color="primary" matStepperNext style="float:right;">{{suivant|uppercase}}</button>
+
+      </div>
+      <app-cv style="margin: 20px;"></app-cv>
+    </mat-step>
     <mat-step >
       <ng-template matStepLabel>Soumission du dossier</ng-template>
 

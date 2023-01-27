@@ -1,7 +1,15 @@
 import { Injectable } from '@angular/core';
 
 const USER_KEY = 'auth-user';
-
+/**
+ * ici on a utiliser pour windows juste fentetre quand tu change on perd donner
+ *
+ * ya pour cookies
+ * ya localStorage
+ * on a pas besion de grande chose
+/**
+ * Injectable
+ */
 @Injectable({
   providedIn: 'root'
 })

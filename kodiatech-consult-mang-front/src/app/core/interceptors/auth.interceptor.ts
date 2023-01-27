@@ -16,7 +16,7 @@ export class AuthInterceptor implements HttpInterceptor {
  */
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     if(this.storageService.getToken()){
-    alert(` InTer: ${this.storageService.getToken()}`)
+   // alert(` InTer: ${this.storageService.getToken()}`)
     const headers = new HttpHeaders()
       .append('Authorization', `Bearer ${this.storageService.getToken()}`);
       const httpOptions = {

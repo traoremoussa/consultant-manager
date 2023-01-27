@@ -16,37 +16,26 @@ export class LoginComponent implements OnInit {
  authenticationRequest!: AuthenticationRequest;
 
 
- isLoggedIn = false;
+
  isLoginFailed = false;
  errorMessage = '';
 
   constructor(private formBuilder: FormBuilder,
-    private authService:AuthService, private router: Router,
-    private storageService: StorageService) { }
+    private authService:AuthService, private router: Router) { }
 
   ngOnInit(): void {
     this.mainForm = this.formBuilder.group({
       email: ['', Validators.required],
       password: ['', Validators.required],
     });
-
-    if (this.storageService.isLoggedIn()) {
-      this.isLoggedIn = true;
-
-    }
   }
 
   onSubmit(){
     this.authenticationRequest = this.mainForm.value;
-    //alert(this.authenticationRequest);
     this.authService.login(this.authenticationRequest).subscribe({
       next: data => {
-        //le retour
-        this.storageService.saveUser(data);
-      //  sessionStorage.setItem('authenticationToken',data.authenticationToken);
-        //console.log("-------------------------------"+this.storageService.getUser())
+
         this.isLoginFailed = false;
-        this.isLoggedIn = true;
 
         this.reloadPage();
       },

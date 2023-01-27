@@ -1,1 +1,14 @@
-<p>cv works!</p>
+<div class="cv-main">
+<mat-form-field >
+  <mat-label>Titre/Fonction(ex: Thech-Lead)</mat-label>
+  <input type="text" matInput formControlName="TitreFonction" />
+  <mat-error>Ce champ est requis</mat-error>
+</mat-form-field>
+</div>
+<app-competence-tech></app-competence-tech>
+<app-cv-form-field [displayedColumns]="displayedColumns" [dataSource]="dataSource"></app-cv-form-field>
+<app-cv-form-field [displayedColumns]="[displayedColumns]" [dataSource]="[]"></app-cv-form-field>
+<!--
+<app-cv-form-field [displayedColumns]=" ['position', 'name', 'weight', 'action']" [dataSource]="dataSource"></app-cv-form-field>
+
+-->

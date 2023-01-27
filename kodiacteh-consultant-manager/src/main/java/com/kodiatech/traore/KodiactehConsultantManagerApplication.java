@@ -8,6 +8,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.Bean;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.util.function.Function;
 
@@ -38,4 +40,19 @@ public class KodiactehConsultantManagerApplication {
 	public Function<String, String> reverse() {
 		return (s) -> String.valueOf(new StringBuilder(s).reverse());
 	}
+
+/* fait l'affaire
+	@Bean
+	public WebMvcConfigurer corsConfigurer() {
+		return new WebMvcConfigurer() {
+			@Override
+			public void addCorsMappings(CorsRegistry registry) {
+				registry.addMapping("/**")
+						.allowedOrigins("*")
+						.allowedMethods("*")
+						.allowedHeaders("*")
+						.allowCredentials(false).maxAge(3600);
+			}
+		};
+	}*/
 }

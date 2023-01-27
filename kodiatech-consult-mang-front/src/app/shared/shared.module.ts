@@ -11,8 +11,8 @@ import { TimelineModule } from 'primeng/timeline';
     CommonModule,
     MaterialModule,
     ReactiveFormsModule,
-    TimelineModule
 
+    TimelineModule
   ],
   exports:[
     // on a exporter vu que sharemodule, serait presque partout

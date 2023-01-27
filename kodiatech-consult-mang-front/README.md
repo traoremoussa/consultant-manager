@@ -42,5 +42,8 @@ https://www.w3schools.com/bootstrap4/bootstrap_flex.asp
 
 
 ##spiner
+`sur route, sur http .... à lire abolument plusieurs types  `
 ** https://github.com/aitboudad/ngx-loading-bar
 #16103e;
+
+https://stackblitz.com/edit/dynamic-columns-mat-table?file=app%2Ftable-pagination-example.html,app%2Ftable-pagination-example.ts

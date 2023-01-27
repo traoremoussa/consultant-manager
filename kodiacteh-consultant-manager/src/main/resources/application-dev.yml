@@ -10,6 +10,10 @@ spring:
     problemdetails:
       enabled: true
 
+  spring:
+    jackson:
+      time-zone=Europe/Zagreb:
+
 ## comme je n'ai pas de mot de passe et user donc je laisse comme
 ## bdd est creee automatiquement par mongo
 ## https://stackoverflow.com/questions/56371736/spring-boot-mongo-db-yml-configuration

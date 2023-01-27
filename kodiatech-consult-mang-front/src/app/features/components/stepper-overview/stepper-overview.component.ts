@@ -11,6 +11,8 @@ export class StepperOverviewComponent implements OnInit {
   pre: string = 'précédent';
   suivant: string = 'suivant';
   demarer: string = 'démarer';
+
+
   constructor() {}
 
   ngOnInit(): void {}

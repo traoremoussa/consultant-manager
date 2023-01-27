@@ -1,9 +1,4 @@
-import { ConsultantService } from './../../services/consultant.service';
 import { Component, OnInit } from '@angular/core';
-
-
-
-
 export interface PeriodicElement {
   name: string;
   position: number;
@@ -20,35 +15,19 @@ const ELEMENT_DATA: PeriodicElement[] = [
 ];
 
 
-
-
-
 @Component({
-  selector: 'app-cv',
-  templateUrl: './cv.component.html',
-  styleUrls: ['./cv.component.scss']
+  selector: 'app-competence-tech',
+  templateUrl: './competence-tech.component.html',
+  styleUrls: ['./competence-tech.component.scss']
 })
-export class CvComponent implements OnInit {
-
-
+export class CompetenceTechComponent implements OnInit {
+  entete:string[]=['Connaissance technique','Description'];
   displayedColumns: string[] = ['position', 'name', 'weight', 'action'];
   dataSource = ELEMENT_DATA;
 
+  constructor() { }
 
-
-
-
-
-  constructor(private service: ConsultantService) { }
-
-
-  ngOnInit() {
-
-  }
-
-  onClear() {
-   // this.service.form.reset();
-   // this.service.initializeFormGroup();
+  ngOnInit(): void {
   }
 
 }

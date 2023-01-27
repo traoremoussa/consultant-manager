@@ -11,6 +11,10 @@ import { DossierCandidatureComponent } from './components/dossier-candidature/do
 import { SoumissionDossierComponent } from './components/soumission-dossier/soumission-dossier.component';
 import { StepperOverviewComponent } from './components/stepper-overview/stepper-overview.component';
 import { AuthGuard } from './components/guars/auth.guard';
+import { ModalFormComponent } from './components/shared/modal-form/modal-form.component';
+import { CvFormFieldComponent } from './components/shared/cv-form-field/cv-form-field.component';
+import {  CompetenceTechComponent } from './components/cv/cv-child/competence-tech/competence-tech.component';
+
 
 
 @NgModule({
@@ -21,12 +25,15 @@ import { AuthGuard } from './components/guars/auth.guard';
     CvComponent,
     DossierCandidatureComponent,
     SoumissionDossierComponent,
-    StepperOverviewComponent
+    StepperOverviewComponent,
+    ModalFormComponent,
+    CvFormFieldComponent,
+    CompetenceTechComponent
   ],
   imports: [
     CommonModule,
     FeaturesRoutingModule,
-    SharedModule
+    SharedModule,
   ],
   //les componennt à exposer
   exports:[],

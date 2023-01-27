@@ -1,0 +1,25 @@
+table {
+  width: 100%;
+align-content: center;
+}
+
+.header-spacer {
+  flex: 1 1 auto;
+}
+
+.header {
+  display: flex;
+  margin: 2rem;
+ align-items: center;
+
+}
+  .header h1{
+    display: inline;
+    padding-top: .4rem;
+    font-weight: 400;
+  }
+
+  .mat-column-action {
+    width: 150px;
+
+  }

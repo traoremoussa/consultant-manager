@@ -13,6 +13,8 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatStepperModule} from '@angular/material/stepper';
 import { MatSelectCountryModule } from '@angular-material-extensions/select-country';
 import { MatMenuModule } from '@angular/material/menu';
+import {MatTableModule} from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   imports: [
@@ -32,7 +34,9 @@ import { MatMenuModule } from '@angular/material/menu';
     MatSelectModule,
     MatStepperModule,
     MatSelectCountryModule,
-    MatMenuModule
+    MatMenuModule,
+    MatTableModule,
+    MatPaginatorModule
 
   ]
 })
