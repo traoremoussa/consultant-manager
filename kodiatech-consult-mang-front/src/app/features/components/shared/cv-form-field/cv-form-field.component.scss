@@ -23,3 +23,17 @@ align-content: center;
     width: 150px;
 
   }
+
+
+  tr.example-element-row:not(.example-expanded-row):hover {
+    background: whitesmoke;
+  }
+
+  tr.example-element-row:not(.example-expanded-row):active {
+    background: #efefef;
+  }
+  .example-tooltip-uppercase {
+
+  font-size: small;
+
+  }

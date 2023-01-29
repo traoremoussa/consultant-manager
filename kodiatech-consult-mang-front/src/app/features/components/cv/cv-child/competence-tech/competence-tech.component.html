@@ -1,1 +1,15 @@
-<app-cv-form-field [displayedColumns]="displayedColumns" [dataSource]="dataSource"></app-cv-form-field>
+
+
+
+
+<app-cv-form-field
+ [displayedColumns]="displayedColumns"
+ [dataSource]="dataSource"
+ [columns]="columns"
+ [messageTooltip]="messageTooltip"
+
+ (modiffElement)="openModal($event)"
+ (addNewElement)="openModal($event)"
+ >
+</app-cv-form-field>
+

@@ -28,6 +28,18 @@
       </div>
       <app-cv style="margin: 20px;"></app-cv>
     </mat-step>
+
+    <mat-step >
+      <ng-template matStepLabel>Dossier de cadidatuer</ng-template>
+
+      <div>
+        <button  mat-raised-button color="primary" matStepperPrevious>{{pre|uppercase}}</button>
+        <button  mat-raised-button color="primary" matStepperNext style="float:right;">{{suivant|uppercase}}</button>
+
+      </div>
+      <app-dossier-candidature style="margin: 20px;"></app-dossier-candidature>
+    </mat-step>
+
     <mat-step >
       <ng-template matStepLabel>Soumission du dossier</ng-template>
 

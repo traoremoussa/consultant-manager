@@ -1,1 +1,22 @@
-<p>modal-form works!</p>
+
+
+<h1 mat-dialog-title>Ajouter une compétence fonctionnelle</h1>
+<mat-dialog-content [formGroup]="dlgFormGroup">
+<div class="form-row" >
+  <mat-form-field >
+    <mat-label>Competence fonctionnelle</mat-label>
+    <input type="text" matInput formControlName="competence" />
+    <mat-error>Ce champ est requis</mat-error>
+  </mat-form-field>
+
+  <mat-form-field >
+    <mat-label>Description</mat-label>
+    <input type="text" matInput formControlName="description" />
+    <mat-error>Ce champ est requis</mat-error>
+  </mat-form-field>
+</div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-raised-button color="warn" mat-dialog-close >Cancel</button>
+  <button mat-raised-button color="primary"  [disabled]="!dlgFormGroup.valid"  cdkFocusInitial (click)="validedForm()">{{actionBtn}}</button>
+</mat-dialog-actions>

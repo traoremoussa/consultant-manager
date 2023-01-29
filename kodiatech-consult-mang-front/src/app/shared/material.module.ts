@@ -15,7 +15,9 @@ import { MatSelectCountryModule } from '@angular-material-extensions/select-coun
 import { MatMenuModule } from '@angular/material/menu';
 import {MatTableModule} from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
-
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 @NgModule({
   imports: [
     MatSelectCountryModule.forRoot('fr')
@@ -36,7 +38,10 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatSelectCountryModule,
     MatMenuModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatTooltipModule,
+    MatDialogModule,
+    MatSnackBarModule
 
   ]
 })

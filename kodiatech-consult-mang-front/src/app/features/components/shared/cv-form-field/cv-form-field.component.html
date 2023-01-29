@@ -1,52 +1,41 @@
 <div class="mat-elevation-z8" >
   <div class="header">
-    <h1>Articles</h1>
+    <h1>Connaissaces Techniques<span style="color: rgb(237, 7, 7);">*</span></h1>
     <span class="header-spacer"></span>
-    <a mat-mini-fab color="primary" routerLink="/create" style="transform: scale(1);">
+    <button mat-mini-fab color="primary" style="transform: scale(1);"
+    [matTooltip]="messageTooltip"
+    matTooltipClass="example-tooltip-uppercase"
+    aria-label="Button that shows a red tooltip"
+
+    (click)="openModal()">
       <mat-icon aria-label="add">add</mat-icon>
-    </a>
+    </button>
   </div>
+
 <div *ngIf="dataSource.length>0">
+
     <table mat-table [dataSource]="dataSource" >
 
-
-
-      <!-- Position Column -->
-      <ng-container matColumnDef="position">
-        <th mat-header-cell *matHeaderCellDef> No. </th>
-        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+      <ng-container *ngFor="let column of columns" [matColumnDef]="column.columnDef">
+        <th mat-header-cell *matHeaderCellDef> {{column.header}} </th>
+        <td mat-cell *matCellDef="let element"> {{column.cell(element)}} </td>
       </ng-container>
-
-      <!-- Name Column -->
-      <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef> Name </th>
-        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-      </ng-container>
-
-      <!-- Weight Column -->
-      <ng-container matColumnDef="weight">
-        <th mat-header-cell *matHeaderCellDef> Weight </th>
-        <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
-      </ng-container>
-
-
-
-
 
 
       <!-- Action -->
       <ng-container matColumnDef="action">
         <th mat-header-cell *matHeaderCellDef> Action </th>
-        <td mat-cell *matCellDef="let element">   <a mat-icon-button title="edit" routerLink="/edit/{{ element.id }}">
+        <td mat-cell *matCellDef="let element">   <a mat-icon-button title="edit" (click)="modiff(element.position )">
           <mat-icon color="primary">create</mat-icon>
         </a>
+        <!-- pour pas output child ..... -->
         <button mat-icon-button title="remove" (click)="deleteElement(element)">
           <mat-icon color="warn">delete</mat-icon>
         </button> </td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"  class="example-element-row"></tr>
 
     </table>
 
@@ -55,5 +44,6 @@
                    aria-label="Select page of periodic elements">
     </mat-paginator>
   </div>
-  </div>
 
+
+</div>

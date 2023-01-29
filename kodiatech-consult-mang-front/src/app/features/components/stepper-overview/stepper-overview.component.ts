@@ -10,7 +10,7 @@ export class StepperOverviewComponent implements OnInit {
   //@Input() si ja un entré de fils pere
   pre: string = 'précédent';
   suivant: string = 'suivant';
-  demarer: string = 'démarer';
+  demarer: string = 'démarrer';
 
 
   constructor() {}
