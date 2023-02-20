@@ -9,10 +9,8 @@ spring:
   mvc:
     problemdetails:
       enabled: true
-
-  spring:
-    jackson:
-      time-zone=Europe/Zagreb:
+  jackson:
+    time-zone=Europe/Paris:
 
 ## comme je n'ai pas de mot de passe et user donc je laisse comme
 ## bdd est creee automatiquement par mongo
@@ -40,3 +38,12 @@ server:
   include-binding-errors: always
   include-stacktrace: on_trace_param
   include-exception: false
+
+
+##
+kodiatech:
+        app:
+          jwtRefreshExpirationMs: 86400000
+
+key:
+  name: description here

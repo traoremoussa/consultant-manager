@@ -1,25 +1,16 @@
 package com.kodiatech.traore.auth.models;
 
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.Instant;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder//permet d'alimenter tous les param (lombok)
-public class AuthenticationResponse {
-    private String authenticationToken;
+public class TokenRefreshRequest {
+    @NotBlank
     private String refreshToken;
-    private Instant expiresAt;
-    private String badRequest;
-    private String nom;
-    private  String email;
-    private String id;
-
-
-
 }

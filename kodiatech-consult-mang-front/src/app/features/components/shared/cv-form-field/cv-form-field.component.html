@@ -1,13 +1,13 @@
 <div class="mat-elevation-z8" >
   <div class="header">
-    <h1>Connaissaces Techniques<span style="color: rgb(237, 7, 7);">*</span></h1>
+    <h1>{{titreTable}}<span style="color: rgb(237, 7, 7);">*</span></h1>
     <span class="header-spacer"></span>
     <button mat-mini-fab color="primary" style="transform: scale(1);"
     [matTooltip]="messageTooltip"
     matTooltipClass="example-tooltip-uppercase"
     aria-label="Button that shows a red tooltip"
 
-    (click)="openModal()">
+    (click)="openModalAddElement()">
       <mat-icon aria-label="add">add</mat-icon>
     </button>
   </div>
@@ -25,7 +25,7 @@
       <!-- Action -->
       <ng-container matColumnDef="action">
         <th mat-header-cell *matHeaderCellDef> Action </th>
-        <td mat-cell *matCellDef="let element">   <a mat-icon-button title="edit" (click)="modiff(element.position )">
+        <td mat-cell *matCellDef="let element">   <a mat-icon-button title="edit" (click)="openModalmodifElement(element.position )">
           <mat-icon color="primary">create</mat-icon>
         </a>
         <!-- pour pas output child ..... -->

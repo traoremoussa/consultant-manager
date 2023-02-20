@@ -5,6 +5,7 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 import io.jsonwebtoken.io.Decoders;
@@ -20,6 +21,8 @@ import java.util.function.Function;
 public class JwtUtils {
     private String SECRET_KEY = "404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970";
 
+    @Value("${kodiatech.app.jwtRefreshExpirationMs}")
+    private Long jwtExpirationInMillis;//= Long.valueOf(1000 * 60 * 24);
     public String extractUsername(String token) {
         return extractClaim(token, Claims::getSubject);
     }
@@ -38,7 +41,8 @@ public class JwtUtils {
                 .setSubject(userDetails.getUsername())
 
                 .setIssuedAt(new Date(System.currentTimeMillis()))
-                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 24))
+                //je peux definir manuellement
+                .setExpiration(new Date(System.currentTimeMillis() + jwtExpirationInMillis))
                 .signWith(getSignInKey(),SignatureAlgorithm.HS256)
                 .compact();
     }
@@ -69,10 +73,7 @@ public class JwtUtils {
     }
 
 
-
-
-
-
-
-
+    public Long getJwtExpirationInMillis() {
+        return jwtExpirationInMillis;
+    }
 }

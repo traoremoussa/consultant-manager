@@ -1,7 +1,17 @@
-import { ModalFormComponent } from './../../../shared/modal-form/modal-form.component';
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ModalFormComponent } from '../../../shared/modal-form/modal-form.component';
+
+
+
+
+
+
+
+
+
+
 
 export interface PeriodicElement {
   name: string;
@@ -11,10 +21,7 @@ export interface PeriodicElement {
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
-  { position: 1, name: 'Hydrogen', weight: 1.0079, action: 'H' },
-  { position: 2, name: 'Helium', weight: 4.0026, action: 'He' },
-  { position: 3, name: 'Lithium', weight: 6.941, action: 'Li' },
-  { position: 4, name: 'Beryllium', weight: 9.0122, action: 'Be' },
+
 ];
 
 const columns = [
@@ -40,14 +47,14 @@ const columns = [
   },
 ];
 
-@Component({
-  selector: 'app-competence-tech',
-  templateUrl: './competence-tech.component.html',
-  styleUrls: ['./competence-tech.component.scss'],
-})
-export class CompetenceTechComponent implements OnInit {
 
-  entete: string[] = ['Connaissance technique', 'Description'];
+@Component({
+  selector: 'app-langue',
+  templateUrl: './langue.component.html',
+  styleUrls: ['./langue.component.scss']
+})
+export class LangueComponent implements OnInit {
+
 
   displayedColumns: string[] = ['position', 'name', 'weight', 'action'];
 
@@ -56,9 +63,8 @@ export class CompetenceTechComponent implements OnInit {
 
 
 
-  messageTooltip:string="Ajouter une connaissance technique";
-  titreTable:string="Connaissaces Techniques"
-
+  messageTooltip:string="Ajouter une langues";
+  titreTable="Langues"
 
   constructor(  private dialog: MatDialog, private snackBar: MatSnackBar ) {}
 
@@ -86,7 +92,8 @@ export class CompetenceTechComponent implements OnInit {
     //parent
     //child???
     //tu mets variable MODIF/AJOU
-    const snack = this.snackBar.open('');
+    const snack = this.snackBar.open('Ouverture ');
     console.warn('Modal class');
   }
+
 }

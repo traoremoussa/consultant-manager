@@ -23,6 +23,7 @@ export class CvFormFieldComponent implements OnInit {
   @Input() dataSource: any;
   @Input() columns: any;
   @Input() messageTooltip: any;
+  @Input()titreTable:any;
 
   resultsLength = 0;
   isLoadingResults = true;
@@ -35,11 +36,11 @@ export class CvFormFieldComponent implements OnInit {
 
 @Output() modiffElement = new EventEmitter<string>();
 
-modiff(value: string) {
+openModalmodifElement(value: string) {
   console.warn("------------------------------------>value---"+value)
   this.modiffElement.emit(value);
 }
-openModal(){
+openModalAddElement(){
   this.addNewElement.emit()
 }
 

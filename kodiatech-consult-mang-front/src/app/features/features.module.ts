@@ -14,6 +14,11 @@ import { AuthGuard } from './components/guars/auth.guard';
 import { ModalFormComponent } from './components/shared/modal-form/modal-form.component';
 import { CvFormFieldComponent } from './components/shared/cv-form-field/cv-form-field.component';
 import {  CompetenceTechComponent } from './components/cv/cv-child/competence-tech/competence-tech.component';
+import { LangueComponent } from './components/cv/cv-child/langue/langue.component';
+import { FormationComponent } from './components/cv/cv-child/formation/formation.component';
+import { ExperienceComponent } from './components/cv/cv-child/experience/experience.component';
+import { ProjetPersonnelComponent } from './components/cv/cv-child/projet-personnel/projet-personnel.component';
+import { CompentenceFonctionnelleComponent } from './components/cv/cv-child/compentence-fonctionnelle/compentence-fonctionnelle.component';
 
 
 
@@ -28,7 +33,12 @@ import {  CompetenceTechComponent } from './components/cv/cv-child/competence-te
     StepperOverviewComponent,
     ModalFormComponent,
     CvFormFieldComponent,
-    CompetenceTechComponent
+    CompetenceTechComponent,
+    LangueComponent,
+    FormationComponent,
+    ExperienceComponent,
+    ProjetPersonnelComponent,
+    CompentenceFonctionnelleComponent
   ],
   imports: [
     CommonModule,

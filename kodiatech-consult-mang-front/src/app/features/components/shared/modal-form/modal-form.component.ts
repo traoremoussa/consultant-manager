@@ -46,6 +46,7 @@ export class ModalFormComponent implements OnInit {
     this.updateTodo();
     }
     public updateTodo(){
+      //RECUPERER DONNEE LORS DE MODIFF
       console.info(this.dlgFormGroup.value)
       this.dlgFormGroup.reset();
       this.dialogRef.close('save');

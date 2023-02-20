@@ -18,6 +18,8 @@ import java.util.Optional;
 import static java.util.Collections.singletonList;
 
 @Service
+@Deprecated
+//TODO Utiliser cette class dans app.....
 public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Autowired
