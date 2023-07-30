@@ -1,7 +1,7 @@
 package com.kodiatech.traore.auth.repositories;
 
 import com.kodiatech.traore.auth.models.RefreshToken;
-import com.kodiatech.traore.profiles.models.Utilisateur;
+import com.kodiatech.traore.profiles.mapper.models.Utilisateur;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;

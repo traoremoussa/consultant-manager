@@ -15,6 +15,7 @@ export class HeaderComponent implements OnInit {
   constructor(private authService: AuthService, private route: Router) {}
 
   ngOnInit(): void {
+    //ecoute action de route
     this.route.events.subscribe((val: any) => {
       //
       if (val.url) {

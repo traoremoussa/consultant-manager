@@ -4,7 +4,7 @@ import com.kodiatech.traore.auth.models.Role;
 import com.kodiatech.traore.profiles.dto.UtilisateurDTO;
 import com.kodiatech.traore.profiles.exceptions.UtilisateurNotFoundException;
 import com.kodiatech.traore.profiles.mapper.UtilisateurMapper;
-import com.kodiatech.traore.profiles.models.Utilisateur;
+import com.kodiatech.traore.profiles.mapper.models.Utilisateur;
 import com.kodiatech.traore.profiles.repositories.UtilisateurRepository;
 import io.micrometer.observation.Observation;
 import io.micrometer.observation.ObservationRegistry;
@@ -13,7 +13,6 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;

@@ -1,7 +1,7 @@
 package com.kodiatech.traore.profiles.mapper;
 
 import com.kodiatech.traore.profiles.dto.UtilisateurDTO;
-import com.kodiatech.traore.profiles.models.Utilisateur;
+import com.kodiatech.traore.profiles.mapper.models.Utilisateur;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

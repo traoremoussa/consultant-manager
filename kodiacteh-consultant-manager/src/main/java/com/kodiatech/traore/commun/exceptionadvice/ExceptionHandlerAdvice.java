@@ -28,7 +28,8 @@ public class ExceptionHandlerAdvice  extends ResponseEntityExceptionHandler {
     @ExceptionHandler(UtilisateurNotFoundException.class)
     public ProblemDetail handlePostNotFoundException(UtilisateurNotFoundException e) throws URISyntaxException {
         ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatus.NOT_FOUND,e.getMessage());
-        problemDetail.setProperty("consultantId",e.getId());
+        problemDetail.setTitle("Not fund utilisateur exception");
+        problemDetail.setProperty("consultantId",e.getMessage());
         problemDetail.setType(new URI("http://localhost:8080/problems/post-not-found"));
         return problemDetail;
     }

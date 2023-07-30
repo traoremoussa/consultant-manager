@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { StorageService } from '../../services/storage.service';
+import { BaseConstantes } from 'src/app/core/constantes/BaseConstantes';
 
 
 @Injectable({
@@ -18,7 +19,7 @@ export class AuthGuard implements CanActivate {
     if (token.id) {
       return true;
     } else {
-      this.router.navigateByUrl('features/login');
+      this.router.navigateByUrl(BaseConstantes.LOGIN_PAGE);
       return false;
     }
   }

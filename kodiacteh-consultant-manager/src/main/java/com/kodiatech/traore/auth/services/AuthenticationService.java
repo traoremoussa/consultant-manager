@@ -7,12 +7,11 @@ import com.kodiatech.traore.auth.models.RefreshToken;
 import com.kodiatech.traore.auth.models.RefreshTokenRequest;
 import com.kodiatech.traore.auth.models.TokenRefreshResponse;
 import com.kodiatech.traore.config.jwt.JwtUtils;
-import com.kodiatech.traore.profiles.models.Utilisateur;
+import com.kodiatech.traore.profiles.exceptions.UtilisateurNotFoundException;
 import com.kodiatech.traore.profiles.repositories.UtilisateurRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
@@ -33,7 +32,7 @@ public class AuthenticationService {
                 )
         );
         var utilisateur = utilisateurRepository.findByEmail(request.getEmail())
-                .orElseThrow();
+                .orElseThrow(()->new UtilisateurNotFoundException("not fund user"));
 
         var jwtToken = jwtUtils.generateToken(utilisateur);
         return AuthenticationResponse.builder()

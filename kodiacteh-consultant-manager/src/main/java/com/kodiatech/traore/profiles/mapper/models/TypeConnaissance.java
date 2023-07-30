@@ -1,8 +1,4 @@
-package com.kodiatech.traore.profiles.models;
-
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+package com.kodiatech.traore.profiles.mapper.models;
 
 import java.util.List;
 import java.util.stream.Collectors;

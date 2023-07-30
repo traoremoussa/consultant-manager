@@ -48,7 +48,7 @@ import { CompentenceFonctionnelleComponent } from './components/cv/cv-child/comp
   //les componennt à exposer
   exports:[],
 
-  //les service
+  //les service a exposer
   providers: [
      AuthService,
      AuthGuard
