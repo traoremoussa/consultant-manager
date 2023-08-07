@@ -40,12 +40,18 @@ public class AuthenticationService {
                 .id(utilisateur.getId())
                 .nom(utilisateur.getNom())
                 .email(utilisateur.getEmail())
-                //POUR REFRESH
+                //POUR REFRESH qu'on stocke qui sera reutiliser pour etre sur
                 .refreshToken(refreshTokenService.generateRefreshToken(utilisateur.getId()).getToken())
                .expiresAt(Instant.now().plusMillis(jwtUtils.getJwtExpirationInMillis()))
                 .build();
     }
 
+    /**
+     * demande de refresh le token
+     * charger de bdd,
+     * @param refreshTokenRequest
+     * @return
+     */
     public TokenRefreshResponse refreshToken(RefreshTokenRequest refreshTokenRequest) {
         String requestRefresToken = refreshTokenRequest.getRefreshToken();
      return    refreshTokenService.findByToken(requestRefresToken)
@@ -53,9 +59,9 @@ public class AuthenticationService {
                 .map( refreshTokenService::verifyExpiration) //-->RfreshToken
                 .map(RefreshToken::getUtilisateur)//-->Utilisateur
                 .map(util->{
-                    String token = jwtUtils.generateToken(util);
+                    String newToken = jwtUtils.generateToken(util);
                     return TokenRefreshResponse.builder()
-                            .accessToken(token)
+                            .accessToken(newToken)
                             .refreshToken(requestRefresToken)
                             .build();
                 }).orElseThrow(() -> new TokenRefreshException(requestRefresToken,

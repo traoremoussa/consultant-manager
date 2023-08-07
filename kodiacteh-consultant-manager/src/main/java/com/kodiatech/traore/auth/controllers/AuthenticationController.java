@@ -7,6 +7,7 @@ import com.kodiatech.traore.auth.models.RefreshTokenRequest;
 import com.kodiatech.traore.auth.models.TokenRefreshResponse;
 import com.kodiatech.traore.auth.services.AuthenticationService;
 import com.kodiatech.traore.auth.services.RefreshTokenService;
+import com.kodiatech.traore.auth.utils.constantes.EndPointBaseConstante;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -22,14 +23,15 @@ public class AuthenticationController {
     private final RefreshTokenService refreshTokenService;
 
 
-    @PostMapping("/authenticate")
+    @PostMapping(EndPointBaseConstante.AUTHENTICATE)
     public ResponseEntity<AuthenticationResponse> authenticate(@Valid @RequestBody AuthenticationRequest request) {
         return ResponseEntity.ok(authenticationService.authenticate(request));
 
     }
-@PostMapping("/refreshtoken")
-public ResponseEntity<TokenRefreshResponse> refreshToken(@Valid @RequestBody RefreshTokenRequest refreshTokenRequest){
-    return ResponseEntity.ok(authenticationService.refreshToken(refreshTokenRequest));
-}
+
+    @PostMapping("/refreshtoken")
+    public ResponseEntity<TokenRefreshResponse> refreshToken(@Valid @RequestBody RefreshTokenRequest refreshTokenRequest) {
+        return ResponseEntity.ok(authenticationService.refreshToken(refreshTokenRequest));
+    }
 
 }
