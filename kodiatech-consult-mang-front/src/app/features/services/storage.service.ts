@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 
 const USER_KEY = 'auth-user';
+const TOKEN_KEY = 'auth-token';
+const REFRESHTOKEN_KEY = 'auth-refreshtoken';
 /**
  * ici on a utiliser pour windows juste fentetre quand tu change on perd donner
  *
@@ -35,6 +37,7 @@ export class StorageService {
     return {};
   }
 
+ /*
   public isLoggedIn(): boolean {
     const user = window.sessionStorage.getItem(USER_KEY);
     if (user) {
@@ -47,6 +50,7 @@ export class StorageService {
   public remove(){
     window.sessionStorage.removeItem(USER_KEY);
   }
+
   public getToken(){
     const user = this.getUser();
     if (user) {
@@ -54,4 +58,35 @@ export class StorageService {
     }
     return '';
   }
+  */
+
+
+
+  //---23/08/2023 ============================================
+  signOut(): void {
+    window.sessionStorage.clear();
+  }
+
+  public saveToken(token: string): void {
+    window.sessionStorage.removeItem(TOKEN_KEY);
+    window.sessionStorage.setItem(TOKEN_KEY, token);
+
+    const user = this.getUser();
+    if (user.id) {
+      this.saveUser({ ...user, accessToken: token });
+    }
+  }
+  public getToken(): string | null {
+    return window.sessionStorage.getItem(TOKEN_KEY);
+  }
+
+  public saveRefreshToken(token: string): void {
+    window.sessionStorage.removeItem(REFRESHTOKEN_KEY);
+    window.sessionStorage.setItem(REFRESHTOKEN_KEY, token);
+  }
+
+  public getRefreshToken(): string | null {
+    return window.sessionStorage.getItem(REFRESHTOKEN_KEY);
+  }
+  //============================================================================
 }

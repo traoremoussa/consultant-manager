@@ -12,6 +12,8 @@ import com.kodiatech.traore.profiles.repositories.UtilisateurRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
@@ -25,25 +27,30 @@ public class AuthenticationService {
     private final AuthenticationManager authenticationManager;
 
     public AuthenticationResponse authenticate(AuthenticationRequest request) {
-        authenticationManager.authenticate(
+        Authentication authenticate= authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         request.getEmail(),
                         request.getPassword()
                 )
         );
-        var utilisateur = utilisateurRepository.findByEmail(request.getEmail())
-                .orElseThrow(()->new UtilisateurNotFoundException("not fund user"));
+        SecurityContextHolder.getContext().setAuthentication(authenticate);
+        if (authenticate.isAuthenticated()) {
+            var utilisateur = utilisateurRepository.findByEmail(request.getEmail())
+                    .orElseThrow(() -> new UtilisateurNotFoundException("not fund user"));
 
-        var jwtToken = jwtUtils.generateToken(utilisateur);
-        return AuthenticationResponse.builder()
-                .authenticationToken(jwtToken)
-                .id(utilisateur.getId())
-                .nom(utilisateur.getNom())
-                .email(utilisateur.getEmail())
-                //POUR REFRESH qu'on stocke qui sera reutiliser pour etre sur
-                .refreshToken(refreshTokenService.generateRefreshToken(utilisateur.getId()).getToken())
-               .expiresAt(Instant.now().plusMillis(jwtUtils.getJwtExpirationInMillis()))
-                .build();
+            var jwtToken = jwtUtils.generateToken(utilisateur);
+            return AuthenticationResponse.builder()
+                    .authenticationToken(jwtToken)
+                    .id(utilisateur.getId())
+                    .nom(utilisateur.getNom())
+                    .email(utilisateur.getEmail())
+                    //POUR REFRESH qu'on stocke qui sera reutiliser pour etre sur
+                    .refreshToken(refreshTokenService.generateRefreshToken(utilisateur.getId()).getToken())
+                    .expiresAt(Instant.now().plusMillis(jwtUtils.getJwtExpirationInMillis()))
+                    .build();
+        }else {
+                throw new UtilisateurNotFoundException("invalid user request !");
+            }
     }
 
     /**

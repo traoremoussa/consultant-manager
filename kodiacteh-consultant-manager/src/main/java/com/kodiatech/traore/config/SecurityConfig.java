@@ -2,6 +2,7 @@ package com.kodiatech.traore.config;
 
 
 import com.kodiatech.traore.config.jwt.JwtAuthFilter;
+import com.kodiatech.traore.profiles.repositories.UtilisateurRepository;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.enums.SecuritySchemeIn;
 import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;
@@ -10,10 +11,17 @@ import io.swagger.v3.oas.annotations.security.SecurityScheme;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
@@ -32,7 +40,7 @@ public class SecurityConfig {
      * probleme de reponse http code status
      * https://www.baeldung.com/spring-cors
      */
-    private final AuthenticationProvider authenticationProvider;
+   private final AuthenticationProvider authenticationProvider;
 
 
     @Bean
@@ -72,4 +80,6 @@ public class SecurityConfig {
     }
 
 //https://www.youtube.com/watch?v=GkFTNz60ynU
+
+
 }

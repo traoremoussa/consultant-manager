@@ -42,24 +42,35 @@ export class AuthService {
           console.log(
             '-------------get----------->' + this.getauthReponse$.value
           );
+
+          this.storageService.saveToken(reponseData.authenticationToken);
+          this.storageService.saveRefreshToken(reponseData.refreshToken);
           this.storageService.saveUser(reponseData);
         })
       );
   }
-
+  /*
   logout() {
     this.storageService.remove();
   }
-  getToken() {
+
+  private getToken() {
     let token = sessionStorage.getItem('authenticationToken') as string;
     //return token.length >0? token:''.
     return token;
   }
+*/
   public getUser() {
     return this.storageService.getUser();
   }
+
+  //retour
   private setauthReponse(loading: string) {
     //appliquer
     this.getauthReponse$.next(loading);
+  }
+  //----- 23/08/2023
+  logout() {
+    this.storageService.signOut();
   }
 }
