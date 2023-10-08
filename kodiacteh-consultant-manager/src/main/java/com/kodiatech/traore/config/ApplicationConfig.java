@@ -74,8 +74,8 @@ public class ApplicationConfig {
     }
 /**
 //=========================== Pour identifier swagger
-
-    @Bean
+*/
+/*
     public AuthenticationManager authManager(HttpSecurity http) throws Exception {
         AuthenticationManagerBuilder authenticationManagerBuilder =
                 http.getSharedObject(AuthenticationManagerBuilder.class);
@@ -103,13 +103,16 @@ public class ApplicationConfig {
         return new InMemoryUserDetailsManager(user1);
     }
 
-
 */
 
 
 
 
+
 }
+
+//TODO good for spring security
+//https://www.bezkoder.com/spring-boot-jwt-auth-mongodb/
 
 //TODO MULTI Provider
 //https://www.baeldung.com/spring-security-multiple-auth-providers

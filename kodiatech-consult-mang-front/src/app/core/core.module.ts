@@ -15,12 +15,14 @@ import * as fr from '@angular/common/locales/fr';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 // for HttpClient import:
 import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
+import { BoardUserComponent } from './components/board-user/board-user.component';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     FooterComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    BoardUserComponent
   ],
   imports: [
     CommonModule,

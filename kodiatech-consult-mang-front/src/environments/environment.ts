@@ -5,7 +5,10 @@
 export const environment = {
   production: false,
 
-  apiUrl: 'http://localhost:8080/api',
+  apiUrl: 'http://localhost:8080',
+
+// à faire
+  BASE_URI:'/api/v1/',
 };
 
 /*

@@ -63,3 +63,6 @@ public class ExceptionHandlerAdvice  extends ResponseEntityExceptionHandler {
 
 // TODO gestion erreur meilleur et simple (code-status et message) pour chaq exception
 //https://www.geeksforgeeks.org/spring-boot-exception-handling/
+
+//actuellement
+// https://www.baeldung.com/spring-security-exceptionhandler

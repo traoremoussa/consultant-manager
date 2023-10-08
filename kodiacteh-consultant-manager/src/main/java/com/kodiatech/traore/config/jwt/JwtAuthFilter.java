@@ -1,8 +1,5 @@
 package com.kodiatech.traore.config.jwt;
 
-import com.kodiatech.traore.auth.dao.UserDao;
-import com.kodiatech.traore.auth.exception.JwtTokenMissingException;
-import com.kodiatech.traore.profiles.exceptions.UtilisateurNotFoundException;
 import io.jsonwebtoken.ExpiredJwtException;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

@@ -5,6 +5,8 @@ import { environment } from 'src/environments/environment';
 import { AuthenticationRequest } from '../models/authentication-request-model';
 import { AuthenticationResponse } from '../models/authentication-response-model';
 import { StorageService } from './storage.service';
+import { ConsultantEndPointURI } from 'src/app/core/constantes/consultant-end-point-uri';
+import { TokenRefreshResponse } from '../models/token-refresh-reponse-model';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
@@ -31,7 +33,7 @@ export class AuthService {
     //  sessionStorage.setItem('user',"");
     return this.http
       .post<AuthenticationResponse>(
-        environment.apiUrl + '/v1/auth/authenticate',
+        environment.apiUrl + ConsultantEndPointURI.ENDPOINT_LOGIN_USER,
         authenticationRequest,
         httpOptions
       )
@@ -49,6 +51,8 @@ export class AuthService {
         })
       );
   }
+
+
   /*
   logout() {
     this.storageService.remove();
@@ -69,8 +73,15 @@ export class AuthService {
     //appliquer
     this.getauthReponse$.next(loading);
   }
+
   //----- 23/08/2023
   logout() {
     this.storageService.signOut();
   }
+  refreshToken(token: string) {
+    return this.http.post<TokenRefreshResponse>(   environment.apiUrl + 'ENDPOINT_LOGIN_REFRESH', {
+      refreshToken: token
+    }, httpOptions);
+  }
+
 }

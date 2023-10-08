@@ -41,7 +41,7 @@ https://www.w3schools.com/bootstrap4/bootstrap_scrollspy.asp
 https://www.w3schools.com/bootstrap4/bootstrap_flex.asp
 
 
-##spiner
+## spiner
 `sur route, sur http .... à lire abolument plusieurs types  `
 ** https://github.com/aitboudad/ngx-loading-bar
 #16103e;
@@ -52,3 +52,10 @@ https://stackblitz.com/edit/dynamic-columns-mat-table?file=app%2Ftable-paginatio
 
 ## clonne
 `https://recrutement.celad.com/home`
+
+## ligne de commande
+
+` You can use 'Find All References' (Shift+F12) to get a better view of usage `
+`https://github.com/Microsoft/vscode-tips-and-tricks#find-all-references `
+## Learn Objet typescript
+https://bobbyhadz.com/blog/typescript-add-property-to-object
