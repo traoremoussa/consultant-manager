@@ -32,7 +32,7 @@ export class ConsultantService {
 
 
 
-
+// à supp
   getUserBoard(): Observable<any> {
     return this.http.get(environment.apiUrl + 'user', { responseType: 'text' });
   }

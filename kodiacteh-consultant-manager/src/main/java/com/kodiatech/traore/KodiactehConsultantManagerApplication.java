@@ -50,4 +50,7 @@ public class KodiactehConsultantManagerApplication {
 			}
 		};
 	}*/
+
+	// CLEAN ARCHI
+	//https://www.youtube.com/watch?v=p029gSnlnfU&ab_channel=DevoxxFR
 }

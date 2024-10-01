@@ -1,4 +1,4 @@
-package com.kodiatech.traore.profiles.mapper.models;
+package com.kodiatech.traore.profiles.models;
 
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;

@@ -1,4 +1,4 @@
-package com.kodiatech.traore.profiles.mapper.models;
+package com.kodiatech.traore.profiles.models;
 
 
 import com.kodiatech.traore.auth.models.Role;

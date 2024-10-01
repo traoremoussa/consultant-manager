@@ -1,4 +1,4 @@
-package com.kodiatech.traore.profiles.mapper.models;
+package com.kodiatech.traore.profiles.models;
 
 
 import jakarta.persistence.Embeddable;
@@ -17,5 +17,7 @@ public class Adresse {
     private String complementAdresse;
     private String codePostal;
     private String ville;
-
+    // je veux utiliser record
+//https://www.jmdoudoux.fr/java/dej/chap-records.htm
+    //https://www.youtube.com/watch?v=p029gSnlnfU&ab_channel=DevoxxFR
 }

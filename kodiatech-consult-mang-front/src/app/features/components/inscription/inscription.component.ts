@@ -83,6 +83,7 @@ export class InscriptionComponent implements OnInit, OnDestroy {
           console.log('REPONSE' + JSON.stringify(this.consultant));
           console.log('INIT-REPONSE' + JSON.stringify(this.consultant));
 
+          //alimenter les diffrent value DU FROM GROUP
           this.adresseFormGroup.patchValue(this.consultant.adresse);
           this.mainForm.patchValue(this.consultant);
         }

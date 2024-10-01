@@ -1,7 +1,7 @@
 package com.kodiatech.traore.auth.services;
 
 import com.kodiatech.traore.auth.models.Role;
-import com.kodiatech.traore.profiles.mapper.models.Utilisateur;
+import com.kodiatech.traore.profiles.models.Utilisateur;
 import com.kodiatech.traore.profiles.repositories.UtilisateurRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;

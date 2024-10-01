@@ -31,7 +31,7 @@ export class AppComponent implements OnInit, OnDestroy {
       const user = this.tokenStorageService.getUser();
       this.roles = user.roles;
 
-      this.showAdminBoard = this.roles.includes('ROLE_ADMIN'); role utilisateur
+      this.showAdminBoard = this.roles.includes('ROLE_ADMIN'); role utilisateur?
       this.showModeratorBoard = this.roles.includes('ROLE_MODERATOR');
 
       this.username = user.username;

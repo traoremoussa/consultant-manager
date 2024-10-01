@@ -1,6 +1,6 @@
 package com.kodiatech.traore.auth.models;
 
-import com.kodiatech.traore.profiles.mapper.models.Utilisateur;
+import com.kodiatech.traore.profiles.models.Utilisateur;
 import jakarta.persistence.Column;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;

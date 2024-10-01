@@ -2,7 +2,7 @@ package com.kodiatech.traore.profiles.controllers;
 
 import com.kodiatech.traore.profiles.dto.UtilisateurDTO;
 import com.kodiatech.traore.profiles.exceptions.UtilisateurNotFoundException;
-import com.kodiatech.traore.profiles.mapper.models.Utilisateur;
+import com.kodiatech.traore.profiles.models.Utilisateur;
 import com.kodiatech.traore.profiles.services.UtilisateurService;
 
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;

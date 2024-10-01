@@ -1,4 +1,4 @@
-package com.kodiatech.traore.profiles.mapper.models;
+package com.kodiatech.traore.profiles.models;
 
 import java.util.List;
 import java.util.stream.Collectors;

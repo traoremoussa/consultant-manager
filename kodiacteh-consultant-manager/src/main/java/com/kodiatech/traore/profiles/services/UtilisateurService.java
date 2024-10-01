@@ -4,7 +4,7 @@ import com.kodiatech.traore.auth.models.Role;
 import com.kodiatech.traore.profiles.dto.UtilisateurDTO;
 import com.kodiatech.traore.profiles.exceptions.UtilisateurNotFoundException;
 import com.kodiatech.traore.profiles.mapper.UtilisateurMapper;
-import com.kodiatech.traore.profiles.mapper.models.Utilisateur;
+import com.kodiatech.traore.profiles.models.Utilisateur;
 import com.kodiatech.traore.profiles.repositories.UtilisateurRepository;
 import io.micrometer.observation.Observation;
 import io.micrometer.observation.ObservationRegistry;
