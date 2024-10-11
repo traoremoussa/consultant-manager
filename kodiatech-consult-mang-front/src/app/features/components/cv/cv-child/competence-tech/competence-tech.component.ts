@@ -46,7 +46,6 @@ const columns = [
   styleUrls: ['./competence-tech.component.scss'],
 })
 export class CompetenceTechComponent implements OnInit {
-
   entete: string[] = ['Connaissance technique', 'Description'];
 
   displayedColumns: string[] = ['position', 'name', 'weight', 'action'];
@@ -54,33 +53,32 @@ export class CompetenceTechComponent implements OnInit {
   dataSource = ELEMENT_DATA;
   columns: any = columns;
 
+  messageTooltip: string = 'Ajouter une connaissance technique';
+  titreTable: string = 'Connaissaces Techniques';
 
-
-  messageTooltip:string="Ajouter une connaissance technique";
-  titreTable:string="Connaissaces Techniques"
-
-
-  constructor(  private dialog: MatDialog, private snackBar: MatSnackBar ) {}
+  constructor(private dialog: MatDialog, private snackBar: MatSnackBar) {}
 
   ngOnInit(): void {}
 
-
-
   //en fonction de parent n'est ce pas
-  openModal(dataV?:any) {
+  openModal(dataV?: any) {
     this.dialog
       .open(ModalFormComponent, {
-        data:{
-          title:'modif',
-          description:'ici',
-          competence:'competence'
-
+        data: {
+          title: 'modif',
+          description: 'ici',
+          competence: 'competence',
         },
-      }).afterClosed().subscribe((val)=>{
-
-        this.snackBar.open(`Closing snack bar in a few seconds ${dataV}`, 'Valider', {
-          duration: 2000,
-        });
+      })
+      .afterClosed()
+      .subscribe((val) => {
+        this.snackBar.open(
+          `Closing snack bar in a few seconds ${dataV}`,
+          'Valider',
+          {
+            duration: 2000,
+          }
+        );
       });
     //varible action
     //parent
