@@ -8,26 +8,19 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-
-
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
 @Configuration
 @RequiredArgsConstructor
 public class ApplicationConfig {
 
-  private final UtilisateurRepository utilisateurRepository;
+    private final UtilisateurRepository utilisateurRepository;
 
-   // private final UserDetailsServiceImpl userDetailsService;
+    // private final UserDetailsServiceImpl userDetailsService;
     /*
         @Bean
         public UserDetailsService userDetailsService() {
@@ -43,6 +36,7 @@ public class ApplicationConfig {
 
     /**
      * j'avais fais une class (UserDetailsServiceImpl) mais pas encore utiliser
+     *
      * @return UserDetailsService
      */
 
@@ -61,20 +55,19 @@ public class ApplicationConfig {
     }
 
 
-
-
     //utiliser par authentication manager (dans service ) je sais pas
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
         return config.getAuthenticationManager();
     }
+
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 /**
-//=========================== Pour identifier swagger
-*/
+ =========================== Pour identifier swagger
+ */
 /*
     public AuthenticationManager authManager(HttpSecurity http) throws Exception {
         AuthenticationManagerBuilder authenticationManagerBuilder =
@@ -104,9 +97,6 @@ public class ApplicationConfig {
     }
 
 */
-
-
-
 
 
 }

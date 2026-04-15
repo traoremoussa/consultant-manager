@@ -1,5 +1,10 @@
 package com.kodiatech.traore;
 
+import com.kodiatech.traore.profiles.models.Adresse;
+import com.kodiatech.traore.profiles.models.Utilisateur;
+import com.kodiatech.traore.profiles.repositories.UtilisateurRepository;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
@@ -9,13 +14,18 @@ import java.util.function.Function;
 
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class })
 //TODO @EnableMongoRepositories
+@Slf4j
 public class KodiactehConsultantManagerApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(KodiactehConsultantManagerApplication.class, args);
+
+        log.info("|-----------------------------------------------------|");
+        log.info("|          KODIA-TECH- CONSULTANT MANAGER SERVER      |");
+        log.info("|                     BIENVENUE                       |");
+        log.info("|-----------------------------------------------------|");
 	}
 
-	/*
 	@Bean
 	public CommandLineRunner commandLineRunner(UtilisateurRepository utilisateurRepository){
 		return e->{
@@ -29,7 +39,7 @@ public class KodiactehConsultantManagerApplication {
 		};
 
 	}
-*/
+
 
 	@Bean
 	public Function<String, String> reverse() {

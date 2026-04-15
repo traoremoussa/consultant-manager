@@ -18,7 +18,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
-import java.util.Objects;
 
 import static org.springframework.http.HttpHeaders.AUTHORIZATION;
 
@@ -28,14 +27,15 @@ public class JwtAuthFilter extends OncePerRequestFilter {
     private static final Logger LOGGER = LoggerFactory.getLogger(JwtAuthFilter.class);
     private final JwtUtils jwtUtils;
     private final UserDetailsService userDetailsService;
+
     @Override
     protected void doFilterInternal(HttpServletRequest request,
                                     HttpServletResponse response,
                                     FilterChain filterChain) throws ServletException, IOException {
         try {
-        final String authHeader = request.getHeader(AUTHORIZATION);
-             String token = null;
-             String userEmail = null;
+            final String authHeader = request.getHeader(AUTHORIZATION);
+            String token = null;
+            String userEmail = null;
           /*  if (authHeader == null ||!authHeader.startsWith("Bearer ")) {
                 filterChain.doFilter(request, response);
                 return;
@@ -46,13 +46,12 @@ public class JwtAuthFilter extends OncePerRequestFilter {
                 token = authHeader.substring(7);
                 userEmail = jwtUtils.extractUsername(token);
             }
-
-
+            
             //
             if (userEmail != null && SecurityContextHolder.getContext().getAuthentication() == null) {
                 UserDetails userDetails = this.userDetailsService.loadUserByUsername(userEmail);
 
-                if (jwtUtils.isTokenValid(token , userDetails)) {
+                if (jwtUtils.isTokenValid(token, userDetails)) {
                     UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
                             userDetails,
                             null,
@@ -65,17 +64,15 @@ public class JwtAuthFilter extends OncePerRequestFilter {
                 }
             }
 
-
             filterChain.doFilter(request, response);
 
-
-    } catch (ExpiredJwtException eje) {
+        } catch (ExpiredJwtException eje) {
             LOGGER.info("Security exception for user {} - {}",
-                eje.getClaims().getSubject(), eje.getMessage());
+                    eje.getClaims().getSubject(), eje.getMessage());
 
             LOGGER.trace("Security exception trace: {}", eje);
-        ((HttpServletResponse) response).setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
             response.sendError(HttpStatus.UNAUTHORIZED.value(), "expired token");
-    }
         }
+    }
 }

@@ -63,7 +63,7 @@ public class Utilisateur implements UserDetails {
     private Adresse adresse;
 
 
-/*
+
     public Utilisateur(String nom, String prenom, String password, String email, String telephone, Adresse adresse) {
         this.nom=nom;
         this.prenom=prenom;
@@ -71,7 +71,7 @@ public class Utilisateur implements UserDetails {
         this.email=email;
         this.telephone=telephone;
         this.adresse=adresse;
-    }*/
+    }
 
     /**
      *

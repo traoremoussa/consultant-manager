@@ -8,13 +8,16 @@ import { AuthGuard } from './components/guars/auth.guard';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: 'inscription', component: InscriptionComponent },
-  { path: 'stepper',    component:StepperOverviewComponent,canActivate: [AuthGuard]},
-
+  { path: 'inscription', component: InscriptionComponent, resolve: {} },
+  {
+    path: 'stepper',
+    component: StepperOverviewComponent,
+    canActivate: [AuthGuard],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class FeaturesRoutingModule { }
+export class FeaturesRoutingModule {}
