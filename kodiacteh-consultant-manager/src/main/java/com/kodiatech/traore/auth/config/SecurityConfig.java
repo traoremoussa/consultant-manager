@@ -1,8 +1,7 @@
-package com.kodiatech.traore.config;
+package com.kodiatech.traore.auth.config;
 
 
-import com.kodiatech.traore.config.jwt.JwtAuthFilter;
-import com.kodiatech.traore.profiles.repositories.UtilisateurRepository;
+import com.kodiatech.traore.auth.config.jwt.JwtAuthFilter;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.enums.SecuritySchemeIn;
 import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;
@@ -11,13 +10,10 @@ import io.swagger.v3.oas.annotations.security.SecurityScheme;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
 import org.springframework.security.authentication.AuthenticationProvider;
-
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
-
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
@@ -36,7 +32,7 @@ public class SecurityConfig {
      * probleme de reponse http code status
      * https://www.baeldung.com/spring-cors
      */
-   private final AuthenticationProvider authenticationProvider;
+    private final AuthenticationProvider authenticationProvider;
 
 
     @Bean
@@ -47,16 +43,15 @@ public class SecurityConfig {
                 .requestMatchers("/*/*/auth/**").permitAll()
                 .requestMatchers("/api/v1/consultant/addCons").permitAll()
                 //enlever
-               // .requestMatchers("/**").permitAll()
+                // .requestMatchers("/**").permitAll()
                 //
-                .requestMatchers("/swagger-ui/**","/v3/api-docs/**").permitAll()
+                .requestMatchers("/swagger-ui/**", "/v3/api-docs/**").permitAll()
                 //.requestMatchers("/v3/api-docs/**", "/swagger-ui/**").permitAll()
 
                 //
                 .anyRequest()
                 .authenticated()
-                .and().httpBasic()
-             .and()
+                .and()
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)//session etat n'est sauver
                 .and()

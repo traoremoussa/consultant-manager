@@ -1,0 +1,35 @@
+db = db.getSiblingDB("consultant_db");
+
+// Création explicite
+db.createCollection("utilisateurs");
+
+//creation user pour bdd
+db.createUser({
+  user: "kodiatech",
+  pwd: "kodiapwd",
+  roles: [
+    { role: "readWrite", db: "consultant_db" }
+  ]
+});
+
+// Index unique
+db.utilisateurs.createIndex({ email: 1 }, { unique: true });
+
+// Insertion
+db.utilisateurs.insertOne({
+    nom: "diaby",
+    prenom: "traore",
+    password: "$2a$10$1YuGJeaKn5PDxIP7lULQaujY0v4cGsrXuPuEpoozhMsdO1ZOfmKWm",
+    email: "t@gmail.com",
+    telephone: "00-00-00-00-00-00",
+    fonctionTitle: "Consultant",
+    adresse: {
+        adresse: "Thomas Edison",
+        complementAdresse: "bat A, appt 68",
+        codePostal: "31400",
+        ville: "Toulouse"
+    },
+    role: "USER"
+});
+
+print("Base consultant_db initialisée avec succès");

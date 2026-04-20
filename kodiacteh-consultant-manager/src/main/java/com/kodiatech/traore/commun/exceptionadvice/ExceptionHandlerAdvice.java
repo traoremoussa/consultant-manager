@@ -2,24 +2,22 @@ package com.kodiatech.traore.commun.exceptionadvice;
 
 import com.kodiatech.traore.auth.exception.TokenRefreshException;
 import com.kodiatech.traore.profiles.exceptions.UtilisateurNotFoundException;
-
-import org.springdoc.api.ErrorMessage;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ProblemDetail;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.web.ErrorResponse;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.context.request.WebRequest;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.time.Instant;
-import java.util.Date;
 
-@RestControllerAdvice
-public class ExceptionHandlerAdvice  extends ResponseEntityExceptionHandler {
+//@RestControllerAdvice
+public class ExceptionHandlerAdvice extends ResponseEntityExceptionHandler {
     /**
      *
      * à l'ecoute d'evenement de la classe excepection en argument,
@@ -27,19 +25,20 @@ public class ExceptionHandlerAdvice  extends ResponseEntityExceptionHandler {
      */
     @ExceptionHandler(UtilisateurNotFoundException.class)
     public ProblemDetail handlePostNotFoundException(UtilisateurNotFoundException e) throws URISyntaxException {
-        ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatus.NOT_FOUND,e.getMessage());
+        ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatus.NOT_FOUND, e.getMessage());
         problemDetail.setTitle("Not fund utilisateur exception");
-        problemDetail.setProperty("consultantId",e.getMessage());
+        problemDetail.setProperty("consultantId", e.getMessage());
         problemDetail.setType(new URI("http://localhost:8080/problems/post-not-found"));
         return problemDetail;
     }
 
     /**
-     *  Au niveau d'angular il faut gerer par httpstatus
+     * Au niveau d'angular il faut gerer par httpstatus
+     *
      * @param ex
      * @return
      */
-    @ExceptionHandler({ AuthenticationException.class })
+    @ExceptionHandler({AuthenticationException.class})
     @ResponseBody
     public ResponseEntity<ProblemDetail> handleAuthenticationException(Exception ex) {
 

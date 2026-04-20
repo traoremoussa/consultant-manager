@@ -1,7 +1,7 @@
 spring:
   data:
     mongodb:
-      uri: mongodb://localhost:27017/consultant_db
+      uri: mongodb://kodiatech:kodiapwd@localhost:27017/consultant_db
       ##log
   output:
     ansi:
@@ -10,7 +10,12 @@ spring:
     problemdetails:
       enabled: true
   jackson:
-    time-zone=Europe/Paris:
+    time-zone: Europe/Paris
+
+## corse source lorsque j'accede
+cors:
+  allowed-origins: http://localhost:4200
+
 
 ## comme je n'ai pas de mot de passe et user donc je laisse comme
 ## bdd est creee automatiquement par mongo
@@ -21,9 +26,9 @@ logging:
     datasource-query-logger: INFO
     org:
       springframework:
-         data: DEBUG
-         security: DEBUG
-         web: ERROR
+        data: DEBUG
+        security: DEBUG
+        web: ERROR
       hibernate: DEBUG
       apache:
         commons:
@@ -34,16 +39,17 @@ logging:
 
 server:
   error:
-  include-message: always
-  include-binding-errors: always
-  include-stacktrace: on_trace_param
-  include-exception: false
+    include-message: always
+    include-binding-errors: always
+    include-stacktrace: on_param
+    include-exception: false
 
 
 ##
 kodiatech:
-        app:
-          jwtRefreshExpirationMs: 86400000
-
+  app:
+    access-expiration: 900000   # 15 min
+    refresh-expiration: 86400000 # 24h
+    secretkey: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
 key:
   name: description here

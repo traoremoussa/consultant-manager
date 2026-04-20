@@ -2,25 +2,28 @@ package com.kodiatech.traore.profiles.models;
 
 
 import com.kodiatech.traore.auth.models.Role;
-import jakarta.persistence.*;
-import lombok.*;
-
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.DocumentReference;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
 
-import java.util.Collection;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @Data
-@Document("utilisateur")
-public class Utilisateur implements UserDetails {
+@Document("utilisateurs")
+public class Utilisateur {
 
     @Id
     private String id;
@@ -31,6 +34,13 @@ public class Utilisateur implements UserDetails {
     private String telephone;
 
     private String fonctionTitle;
+
+    @CreatedDate
+    private LocalDateTime createDate;
+
+    @LastModifiedDate
+    private LocalDateTime updateDate;
+
     @Enumerated(EnumType.STRING)
     private Role role;
 
@@ -50,7 +60,6 @@ public class Utilisateur implements UserDetails {
     private List<ProjetPersonnel> projetPersonnels;
 
 
-
     //Adresse
     @DBRef
     /*
@@ -63,14 +72,13 @@ public class Utilisateur implements UserDetails {
     private Adresse adresse;
 
 
-
     public Utilisateur(String nom, String prenom, String password, String email, String telephone, Adresse adresse) {
-        this.nom=nom;
-        this.prenom=prenom;
-        this.password=password;
-        this.email=email;
-        this.telephone=telephone;
-        this.adresse=adresse;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.password = password;
+        this.email = email;
+        this.telephone = telephone;
+        this.adresse = adresse;
     }
 
     /**
@@ -79,44 +87,7 @@ public class Utilisateur implements UserDetails {
      */
 
 
-
-
-
 //----------------------------------SECURITY
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority(role.name()));
-    }
-
-    @Override
-    public String getPassword() {
-        return password;
-    }
-
-    @Override
-    public String getUsername() {
-        return email;
-    }
-
-    @Override
-    public boolean isAccountNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return true;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return true;
-    }
 }
 
 /*POSTMAN

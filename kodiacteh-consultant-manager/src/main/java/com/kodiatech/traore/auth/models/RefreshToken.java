@@ -1,31 +1,37 @@
 package com.kodiatech.traore.auth.models;
 
-import com.kodiatech.traore.profiles.models.Utilisateur;
-import jakarta.persistence.Column;
 import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.DocumentReference;
 
 import java.time.Instant;
 
-@AllArgsConstructor
+
 @NoArgsConstructor
 @Data
-@Document
+@Document(collection = "refresh_tokens")
 public class RefreshToken {
     @Id
     private String id;
-    @DocumentReference
-    private Utilisateur utilisateur;
+    
+    @Indexed
+    private String utilisateurId;
 
-    @Column(nullable = false, unique = true)
+    @Indexed(unique = true)
     private String token;
 
-    @Column(nullable = false)
+    //Mongo supprime automatiquement les tokens expirés
+    @Indexed(expireAfterSeconds = 0)
     private Instant expiryDate;
 
     private Instant createdDate;
+    /**
+     * Sans device / IP : User se connecte → token A / Hacker vole A 😬 /Hacker utilise A depuis un autre pays
+     */
+    private String device;
+    private String ipAddress;
+
+    private boolean used; // 🔥 anti replay attack
 }

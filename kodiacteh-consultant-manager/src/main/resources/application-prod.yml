@@ -1,0 +1,3 @@
+## quand ça sera deployer en prod
+cors:
+  allowed-origins: https://myapp.com
