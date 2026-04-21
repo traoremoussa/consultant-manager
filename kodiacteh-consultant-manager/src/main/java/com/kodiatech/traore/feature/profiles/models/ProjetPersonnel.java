@@ -1,6 +1,5 @@
-package com.kodiatech.traore.profiles.models;
+package com.kodiatech.traore.feature.profiles.models;
 
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,10 +12,14 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Builder
 @Data
 @Document
-public class ConnaissanceTech {
+public class ProjetPersonnel {
     @Id
     private String id;
-    @Enumerated
-    private TypeConnaissance typeConnaissace;
-    private String description;
+    private String nom;
+    private Integer durer;
+    private String lieuProjet;
+    private Ville ville;
+    private String environnementTech;
+
+
 }

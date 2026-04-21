@@ -1,4 +1,4 @@
-package com.kodiatech.traore.profiles.models;
+package com.kodiatech.traore.feature.profiles.models;
 
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
@@ -12,9 +12,12 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Builder
 @Data
 @Document
-public class Competence {
+public class Formation {
     @Id
     private String id;
-    private String competenceTech;
-    private String description;
+
+    private String intituler;
+    private String etablissement;
+    //calendrier from extrai l'annee et persiste (affiche calendrier juste year)
+    private Integer annee;
 }

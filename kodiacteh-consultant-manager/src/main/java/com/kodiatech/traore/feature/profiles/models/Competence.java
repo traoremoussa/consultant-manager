@@ -1,4 +1,4 @@
-package com.kodiatech.traore.profiles.models;
+package com.kodiatech.traore.feature.profiles.models;
 
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
@@ -12,14 +12,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Builder
 @Data
 @Document
-public class ProjetPersonnel {
+public class Competence {
     @Id
     private String id;
-    private String nom;
-    private Integer durer;
-    private String lieuProjet;
-    private Ville  ville;
-    private String environnementTech;
-
-
+    private String competenceTech;
+    private String description;
 }

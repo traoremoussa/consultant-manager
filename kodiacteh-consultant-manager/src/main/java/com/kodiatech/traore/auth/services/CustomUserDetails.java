@@ -1,6 +1,6 @@
 package com.kodiatech.traore.auth.services;
 
-import com.kodiatech.traore.profiles.models.Utilisateur;
+import com.kodiatech.traore.feature.profiles.models.Utilisateur;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

@@ -1,11 +1,11 @@
-package com.kodiatech.traore.profiles.services;
+package com.kodiatech.traore.feature.profiles.services;
 
 import com.kodiatech.traore.auth.models.Role;
-import com.kodiatech.traore.profiles.dto.UtilisateurDTO;
-import com.kodiatech.traore.profiles.exceptions.UtilisateurNotFoundException;
-import com.kodiatech.traore.profiles.mapper.UtilisateurMapper;
-import com.kodiatech.traore.profiles.models.Utilisateur;
-import com.kodiatech.traore.profiles.repositories.UtilisateurRepository;
+import com.kodiatech.traore.feature.profiles.dto.UtilisateurDTO;
+import com.kodiatech.traore.feature.profiles.exceptions.UtilisateurNotFoundException;
+import com.kodiatech.traore.feature.profiles.mapper.UtilisateurMapper;
+import com.kodiatech.traore.feature.profiles.models.Utilisateur;
+import com.kodiatech.traore.feature.profiles.repositories.UtilisateurRepository;
 import io.micrometer.observation.Observation;
 import io.micrometer.observation.ObservationRegistry;
 import lombok.AllArgsConstructor;
@@ -27,9 +27,9 @@ public class UtilisateurService {
     //Observation
     private ObservationRegistry observationRegistry;
 
-    private List<Utilisateur> utilisateurs= new ArrayList<>();
+    private List<Utilisateur> utilisateurs = new ArrayList<>();
 
-@SuppressWarnings("syntheticAccess" )
+    @SuppressWarnings("syntheticAccess")
     public Utilisateur addConsultant(Utilisateur util) {
 
 
@@ -52,6 +52,7 @@ public class UtilisateurService {
     public Optional<Utilisateur> findByEmail(String email) {
         return utilisateurRepository.findByEmail(email);
     }
+
     /**
      * Method to get the employee default values
      * First time, it'' get from database
@@ -62,12 +63,12 @@ public class UtilisateurService {
 
     @Cacheable("utilisateurs")
     public List<Utilisateur> consultants() {
-        utilisateurs=utilisateurRepository.findAll();
+        utilisateurs = utilisateurRepository.findAll();
         return utilisateurs;
     }
 
     public UtilisateurDTO consultantById(String id) {
-        Utilisateur util= utilisateurRepository.findById(id).orElseThrow(() -> new UtilisateurNotFoundException(id));
+        Utilisateur util = utilisateurRepository.findById(id).orElseThrow(() -> new UtilisateurNotFoundException(id));
 
         return utilisateurMapper.utilisateurToUtilisateurDTO(util);
     }

@@ -1,6 +1,6 @@
-package com.kodiatech.traore.profiles.dto;
+package com.kodiatech.traore.feature.profiles.dto;
 
-import com.kodiatech.traore.profiles.models.Adresse;
+import com.kodiatech.traore.feature.profiles.models.Adresse;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

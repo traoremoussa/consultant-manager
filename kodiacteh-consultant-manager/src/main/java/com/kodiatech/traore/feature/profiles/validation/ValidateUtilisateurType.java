@@ -1,15 +1,15 @@
-package com.kodiatech.traore.profiles.validation;
+package com.kodiatech.traore.feature.profiles.validation;
 
 import jakarta.validation.Constraint;
 
 import java.lang.annotation.*;
 
-@Target({ElementType.FIELD,ElementType.PARAMETER})
+@Target({ElementType.FIELD, ElementType.PARAMETER})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Constraint(validatedBy = UtilisateurTypeValidator.class)
 public @interface ValidateUtilisateurType {
-    public String message();
+    String message();
 
 
 }

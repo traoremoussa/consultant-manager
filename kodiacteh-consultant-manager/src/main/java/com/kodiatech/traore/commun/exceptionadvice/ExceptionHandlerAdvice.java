@@ -1,7 +1,7 @@
 package com.kodiatech.traore.commun.exceptionadvice;
 
 import com.kodiatech.traore.auth.exception.TokenRefreshException;
-import com.kodiatech.traore.profiles.exceptions.UtilisateurNotFoundException;
+import com.kodiatech.traore.feature.profiles.exceptions.UtilisateurNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ProblemDetail;
 import org.springframework.http.ResponseEntity;

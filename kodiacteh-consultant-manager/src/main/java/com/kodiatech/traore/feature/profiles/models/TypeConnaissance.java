@@ -1,4 +1,4 @@
-package com.kodiatech.traore.profiles.models;
+package com.kodiatech.traore.feature.profiles.models;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -12,11 +12,20 @@ public enum TypeConnaissance {
     METHODOLOGIES("Methodologies"),
     FRAMEWORKS("Frameworks");
 
-        private String value;
+    private String value;
 
-        TypeConnaissance(String value){
-            this.value=value;
-        }
+    TypeConnaissance(String value) {
+        this.value = value;
+    }
+
+    public static Stream<TypeConnaissance> typeConnaissanceStream() {
+        return Stream.of(TypeConnaissance.values());
+    }
+
+    public static List<TypeConnaissance> typeConnaissanceList() {
+        List typeConnaissances = Stream.of(TypeConnaissance.values()).collect(Collectors.toList());
+        return typeConnaissances;
+    }
 
     public String getValue() {
         return value;
@@ -26,18 +35,10 @@ public enum TypeConnaissance {
         this.value = value;
     }
 
-    public void afficher (){
+    public void afficher() {
         TypeConnaissance.typeConnaissanceStream()
                 .filter(d -> d.getValue().equals("Frameworks"))
                 .forEach(System.out::println);
-    }
-
-    public static Stream<TypeConnaissance> typeConnaissanceStream() {
-        return Stream.of(TypeConnaissance.values());
-    }
-    public static List<TypeConnaissance> typeConnaissanceList(){
-        List typeConnaissances= Stream.of(TypeConnaissance.values()).collect(Collectors.toList());
-        return typeConnaissances;
     }
 }
 //@See https://www.baeldung.com/java-enum-iteration

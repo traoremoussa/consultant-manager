@@ -1,7 +1,7 @@
 package com.kodiatech.traore.auth.services;
 
-import com.kodiatech.traore.profiles.models.Utilisateur;
-import com.kodiatech.traore.profiles.repositories.UtilisateurRepository;
+import com.kodiatech.traore.feature.profiles.models.Utilisateur;
+import com.kodiatech.traore.feature.profiles.repositories.UtilisateurRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;

@@ -1,13 +1,15 @@
-package com.kodiatech.traore.profiles.exceptions;
+package com.kodiatech.traore.feature.profiles.exceptions;
 
 public class UtilisateurNotFoundException extends RuntimeException {
 
     public UtilisateurNotFoundException(String message, Throwable cause) {
         super(message, cause);
     }
+
     public UtilisateurNotFoundException(String message) {
         super(message);
     }
+
     public UtilisateurNotFoundException(Throwable cause) {
         super(cause);
     }

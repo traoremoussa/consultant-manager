@@ -1,8 +1,8 @@
 package com.kodiatech.traore;
 
-import com.kodiatech.traore.profiles.models.Adresse;
-import com.kodiatech.traore.profiles.models.Utilisateur;
-import com.kodiatech.traore.profiles.repositories.UtilisateurRepository;
+import com.kodiatech.traore.feature.profiles.models.Adresse;
+import com.kodiatech.traore.feature.profiles.models.Utilisateur;
+import com.kodiatech.traore.feature.profiles.repositories.UtilisateurRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -12,39 +12,39 @@ import org.springframework.context.annotation.Bean;
 
 import java.util.function.Function;
 
-@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class })
+@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
 //TODO @EnableMongoRepositories
 @Slf4j
 public class KodiactehConsultantManagerApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(KodiactehConsultantManagerApplication.class, args);
+    public static void main(String[] args) {
+        SpringApplication.run(KodiactehConsultantManagerApplication.class, args);
 
         log.info("|-----------------------------------------------------|");
         log.info("|          KODIA-TECH- CONSULTANT MANAGER SERVER      |");
         log.info("|                     BIENVENUE                       |");
         log.info("|-----------------------------------------------------|");
-	}
+    }
 
-	@Bean
-	public CommandLineRunner commandLineRunner(UtilisateurRepository utilisateurRepository){
-		return e->{
-		final Adresse address = new Adresse("Thomas edison", "bat a, appt 68", "31400", "Toulouse");
+    @Bean
+    public CommandLineRunner commandLineRunner(UtilisateurRepository utilisateurRepository) {
+        return e -> {
+            final Adresse address = new Adresse("Thomas edison", "bat a, appt 68", "31400", "Toulouse");
 
-			final Utilisateur utilisateur=new Utilisateur("Traore","moussa","password8","hij@gmail.com","00-00-00-00-00-00",address);
+            final Utilisateur utilisateur = new Utilisateur("Traore", "moussa", "password8", "hij@gmail.com", "00-00-00-00-00-00", address);
 
-			//utilisateurRepository.save(utilisateur);
-
-
-		};
-
-	}
+            //utilisateurRepository.save(utilisateur);
 
 
-	@Bean
-	public Function<String, String> reverse() {
-		return (s) -> String.valueOf(new StringBuilder(s).reverse());
-	}
+        };
+
+    }
+
+
+    @Bean
+    public Function<String, String> reverse() {
+        return (s) -> String.valueOf(new StringBuilder(s).reverse());
+    }
 
 /* fait l'affaire aussi
 	@Bean
@@ -61,6 +61,6 @@ public class KodiactehConsultantManagerApplication {
 		};
 	}*/
 
-	// CLEAN ARCHI
-	//https://www.youtube.com/watch?v=p029gSnlnfU&ab_channel=DevoxxFR
+    // CLEAN ARCHI
+    //https://www.youtube.com/watch?v=p029gSnlnfU&ab_channel=DevoxxFR
 }

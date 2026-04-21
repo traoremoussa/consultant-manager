@@ -1,6 +1,6 @@
 package com.kodiatech.traore.auth.exception;
 
-import com.kodiatech.traore.profiles.exceptions.UtilisateurNotFoundException;
+import com.kodiatech.traore.feature.profiles.exceptions.UtilisateurNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.BadCredentialsException;

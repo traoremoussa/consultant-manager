@@ -1,10 +1,9 @@
-package com.kodiatech.traore.profiles.controllers;
+package com.kodiatech.traore.feature.profiles.controllers;
 
-import com.kodiatech.traore.profiles.dto.UtilisateurDTO;
-import com.kodiatech.traore.profiles.exceptions.UtilisateurNotFoundException;
-import com.kodiatech.traore.profiles.models.Utilisateur;
-import com.kodiatech.traore.profiles.services.UtilisateurService;
-
+import com.kodiatech.traore.feature.profiles.dto.UtilisateurDTO;
+import com.kodiatech.traore.feature.profiles.exceptions.UtilisateurNotFoundException;
+import com.kodiatech.traore.feature.profiles.models.Utilisateur;
+import com.kodiatech.traore.feature.profiles.services.UtilisateurService;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.Data;
@@ -14,9 +13,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-
 import java.io.IOException;
 import java.util.List;
+
 //http://localhost:8080/api/v1/consultant
 @RestController
 @Data
@@ -30,19 +29,21 @@ public class UtilisateurController {
 
     //@ApiIgnore
 
-    @GetMapping(value="/")
+    @GetMapping(value = "/")
     public void redirect(HttpServletResponse response) throws IOException {
         response.sendRedirect("/swagger-ui.html");
     }
+
     //CRUD
     //
     @GetMapping("/consultants")
-    public ResponseEntity<List<Utilisateur>> consultants(){
+    public ResponseEntity<List<Utilisateur>> consultants() {
         LOG.info("Getting all users.");
         return ResponseEntity.ok(utilisateurService.consultants());
     }
+
     @GetMapping("all-info/{id}")
-    public ResponseEntity<Utilisateur> consultantsByIdAllInfo(@PathVariable String id){
+    public ResponseEntity<Utilisateur> consultantsByIdAllInfo(@PathVariable String id) {
         try {
             LOG.info("---------------Getting  users.");
             return ResponseEntity.ok(utilisateurService.consultantAllInfoById(id));
@@ -53,19 +54,19 @@ public class UtilisateurController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<UtilisateurDTO> consultantsById(@PathVariable String id){
+    public ResponseEntity<UtilisateurDTO> consultantsById(@PathVariable String id) {
         try {
             LOG.info("---------------Getting  users.");
             return ResponseEntity.ok(utilisateurService.consultantById(id));
         } catch (UtilisateurNotFoundException exc) {
-                throw new UtilisateurNotFoundException(
-                        HttpStatus.NOT_FOUND.toString());
-            }
+            throw new UtilisateurNotFoundException(
+                    HttpStatus.NOT_FOUND.toString());
+        }
     }
 
     @PostMapping("/addCons")
-    public ResponseEntity<String> addConsultant(@RequestBody Utilisateur util){
-        LOG.info("Saving user.{}",util);
+    public ResponseEntity<String> addConsultant(@RequestBody Utilisateur util) {
+        LOG.info("Saving user.{}", util);
         boolean userExists = utilisateurService
                 .findByEmail(util.getEmail())
                 .isPresent();

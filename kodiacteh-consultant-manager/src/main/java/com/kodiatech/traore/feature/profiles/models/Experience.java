@@ -1,4 +1,4 @@
-package com.kodiatech.traore.profiles.models;
+package com.kodiatech.traore.feature.profiles.models;
 
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
@@ -19,11 +20,11 @@ public class Experience {
 
     private String societe;
     //ici on a pas une ville controle en fonction du colone donc je laisse en string
-    private  String ville;
+    private String ville;
 
     //POSTE
     //on pouvait faire une classe à part si necessaire de predefinir auto les poste possible
-    private  String poste;
+    private String poste;
     private Date periodeDebut;
     private Date periodeFin;
     private boolean posteOccupe;

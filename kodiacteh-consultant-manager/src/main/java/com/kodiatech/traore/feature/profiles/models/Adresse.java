@@ -1,4 +1,4 @@
-package com.kodiatech.traore.profiles.models;
+package com.kodiatech.traore.feature.profiles.models;
 
 
 import jakarta.persistence.Embeddable;

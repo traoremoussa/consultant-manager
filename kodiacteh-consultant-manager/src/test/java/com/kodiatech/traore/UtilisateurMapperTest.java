@@ -1,8 +1,6 @@
 package com.kodiatech.traore;
 
-import com.kodiatech.traore.profiles.dto.UtilisateurDTO;
 import org.junit.jupiter.api.Test;
-
 
 
 public class UtilisateurMapperTest {
