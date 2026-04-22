@@ -85,10 +85,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "kodiatech-consult-mang-front:build:production"
+              "buildTarget": "kodiatech-consult-mang-front:build:production"
             },
             "development": {
-              "browserTarget": "kodiatech-consult-mang-front:build:development"
+              "buildTarget": "kodiatech-consult-mang-front:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -96,7 +96,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "kodiatech-consult-mang-front:build"
+            "buildTarget": "kodiatech-consult-mang-front:build"
           }
         },
         "test": {

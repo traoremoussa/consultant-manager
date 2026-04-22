@@ -11,7 +11,6 @@ import { MatRadioModule } from '@angular/material/radio';
 import{MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatSelectModule} from '@angular/material/select';
 import {MatStepperModule} from '@angular/material/stepper';
-import { MatSelectCountryModule } from '@angular-material-extensions/select-country';
 import { MatMenuModule } from '@angular/material/menu';
 import {MatTableModule} from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -20,7 +19,6 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 @NgModule({
   imports: [
-    MatSelectCountryModule.forRoot('fr')
   ],
   exports: [
     MatToolbarModule,
@@ -35,7 +33,6 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatProgressSpinnerModule,
     MatSelectModule,
     MatStepperModule,
-    MatSelectCountryModule,
     MatMenuModule,
     MatTableModule,
     MatPaginatorModule,

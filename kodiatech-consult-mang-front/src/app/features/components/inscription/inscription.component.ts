@@ -1,6 +1,6 @@
 import { Consultant } from './../../models/consultant-model';
 import { ConsultantService } from './../../services/consultant.service';
-import { Country } from '@angular-material-extensions/select-country';
+
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import {
   UntypedFormBuilder,
@@ -27,17 +27,25 @@ export class InscriptionComponent implements OnInit, OnDestroy {
   ConsultantSub!: Subscription; //pour destruct a la fin de subscription (possible Async dans html )
 
   //TODO dehors
-  defaultValue: Country = {
+  /*defaultValue: Country = {
     name: 'France',
     alpha2Code: 'FR',
     alpha3Code: 'FRA',
     numericCode: '250',
     callingCode: '+33',
-  };
+  };*/
+
+  countries = [
+    { code: 'FR', name: 'France' },
+    { code: 'BE', name: 'Belgique' },
+    { code: 'SN', name: 'Sénégal' },
+    { code: 'MA', name: 'Maroc' },
+  ];
+
   constructor(
     private formBuilder: UntypedFormBuilder,
     private consultantService: ConsultantService,
-    private storageService: StorageService
+    private storageService: StorageService,
   ) {}
 
   ngOnInit(): void {
@@ -57,7 +65,10 @@ export class InscriptionComponent implements OnInit, OnDestroy {
     this.mainForm = this.formBuilder.group({
       nom: ['', Validators.required],
       prenom: ['', Validators.required],
-      email: new UntypedFormControl('', [Validators.required, Validators.email]),
+      email: new UntypedFormControl('', [
+        Validators.required,
+        Validators.email,
+      ]),
       telephone: new UntypedFormControl(''),
       adresse: this.adresseFormGroup,
       //-------
@@ -86,7 +97,7 @@ export class InscriptionComponent implements OnInit, OnDestroy {
           //alimenter les diffrent value DU FROM GROUP
           this.adresseFormGroup.patchValue(this.consultant.adresse);
           this.mainForm.patchValue(this.consultant);
-        }
+        },
       );
 
     /*on pipe si j'ai envi d'applique une operation sur la donne
