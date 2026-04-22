@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticationRequest } from '../../models/authentication-request-model';
 import { AuthService } from '../../services/auth.service';
@@ -11,7 +11,7 @@ import { StorageService } from '../../services/storage.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  mainForm!: FormGroup;
+  mainForm!: UntypedFormGroup;
 
  authenticationRequest!: AuthenticationRequest;
 
@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
  isLoginFailed = false;
  errorMessage = '';
 
-  constructor(private formBuilder: FormBuilder,
+  constructor(private formBuilder: UntypedFormBuilder,
     private authService:AuthService, private router: Router) { }
 
   ngOnInit(): void {

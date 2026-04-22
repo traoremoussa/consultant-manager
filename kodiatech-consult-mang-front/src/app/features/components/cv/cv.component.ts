@@ -1,6 +1,6 @@
 import { ConsultantService } from './../../services/consultant.service';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, UntypedFormControl } from '@angular/forms';
 
 
 
@@ -37,16 +37,16 @@ export class CvComponent implements OnInit {
 
 
   //Forme groupe
-  titreFonctionFormGroup!: FormGroup;
+  titreFonctionFormGroup!: UntypedFormGroup;
 
 
 
-  constructor(private service: ConsultantService,private formbuilder:FormBuilder) { }
+  constructor(private service: ConsultantService,private formbuilder:UntypedFormBuilder) { }
 
 
   ngOnInit() {
    this.titreFonctionFormGroup= this.formbuilder.group({
-      titreFonction:new FormControl('')
+      titreFonction:new UntypedFormControl('')
     })
 
   }

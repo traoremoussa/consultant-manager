@@ -1,8 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
+  UntypedFormBuilder,
+  UntypedFormControl,
+  UntypedFormGroup,
   Validators,
 } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -15,13 +15,13 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 export class ModalFormComponent implements OnInit {
   //Titre
   //Forme groupe
-  dlgFormGroup!: FormGroup;
+  dlgFormGroup!: UntypedFormGroup;
   //Service consutant
   //en fonction des objets il faut ouvert Model????
   actionBtn = 'Modifier';
 
   constructor(
-    private formbuilder: FormBuilder,
+    private formbuilder: UntypedFormBuilder,
     public dialogRef: MatDialogRef<ModalFormComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
@@ -35,8 +35,8 @@ export class ModalFormComponent implements OnInit {
 
   initMainForm(): void {
     this.dlgFormGroup = this.formbuilder.group({
-      competence: new FormControl('', Validators.required),
-      description: new FormControl(''),
+      competence: new UntypedFormControl('', Validators.required),
+      description: new UntypedFormControl(''),
     });
   }
 

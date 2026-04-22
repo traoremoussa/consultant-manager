@@ -3,9 +3,9 @@ import { ConsultantService } from './../../services/consultant.service';
 import { Country } from '@angular-material-extensions/select-country';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
+  UntypedFormBuilder,
+  UntypedFormControl,
+  UntypedFormGroup,
   Validators,
 } from '@angular/forms';
 import { Subscription, tap } from 'rxjs';
@@ -21,8 +21,8 @@ export class InscriptionComponent implements OnInit, OnDestroy {
   //je vais faire un seul group de form
   // et les autres form control
 
-  mainForm!: FormGroup;
-  adresseFormGroup!: FormGroup;
+  mainForm!: UntypedFormGroup;
+  adresseFormGroup!: UntypedFormGroup;
   consultant!: Consultant;
   ConsultantSub!: Subscription; //pour destruct a la fin de subscription (possible Async dans html )
 
@@ -35,7 +35,7 @@ export class InscriptionComponent implements OnInit, OnDestroy {
     callingCode: '+33',
   };
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private consultantService: ConsultantService,
     private storageService: StorageService
   ) {}
@@ -49,16 +49,16 @@ export class InscriptionComponent implements OnInit, OnDestroy {
 
   initMainForm(): void {
     this.adresseFormGroup = this.formBuilder.group({
-      adresse: new FormControl('', Validators.required),
-      complementAdresse: new FormControl(''),
-      codePostal: new FormControl(''),
-      ville: new FormControl(''),
+      adresse: new UntypedFormControl('', Validators.required),
+      complementAdresse: new UntypedFormControl(''),
+      codePostal: new UntypedFormControl(''),
+      ville: new UntypedFormControl(''),
     });
     this.mainForm = this.formBuilder.group({
       nom: ['', Validators.required],
       prenom: ['', Validators.required],
-      email: new FormControl('', [Validators.required, Validators.email]),
-      telephone: new FormControl(''),
+      email: new UntypedFormControl('', [Validators.required, Validators.email]),
+      telephone: new UntypedFormControl(''),
       adresse: this.adresseFormGroup,
       //-------
     });
