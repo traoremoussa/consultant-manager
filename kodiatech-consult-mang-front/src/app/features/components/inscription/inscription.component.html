@@ -53,18 +53,20 @@
       </mat-form-field>
 
       <!--Pays liste
-  <mat-select-country    label="Pays"
-  [value]="defaultValue">
+      <mat-select-country    label="Pays"
+        [value]="defaultValue">
 
-    <mat-error>Ce champ est requis</mat-error>
-    </mat-select-country>
--->
+        <mat-error>Ce champ est requis</mat-error>
+      </mat-select-country>
+      -->
       <mat-form-field appearance="fill">
         <mat-label>Pays</mat-label>
         <mat-select formControlName="country">
-          <mat-option *ngFor="let c of countries" [value]="c.code">
-            {{ c.name }}
-          </mat-option>
+          @for (c of countries; track c) {
+            <mat-option [value]="c.code">
+              {{ c.name }}
+            </mat-option>
+          }
         </mat-select>
       </mat-form-field>
 
@@ -84,5 +86,5 @@
       <b>{{key}}</b>: {{myForm[key]}}
     </span>
   </div> -->
-  </div>
+</div>
 </div>

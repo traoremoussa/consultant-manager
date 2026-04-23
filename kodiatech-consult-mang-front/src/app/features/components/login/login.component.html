@@ -1,9 +1,11 @@
 <div class="login-main">
   <mat-card [formGroup]="mainForm" class="main-form" >
     <mat-card-title>Identifiez vous</mat-card-title>
-    <mat-error *ngIf="isLoginFailed">
-      The username and password were not recognized
-    </mat-error>
+    @if (isLoginFailed) {
+      <mat-error>
+        The username and password were not recognized
+      </mat-error>
+    }
     <mat-form-field >
       <mat-label>Email</mat-label>
       <input type="text" matInput formControlName="email" />
@@ -16,11 +18,11 @@
       <mat-error>Ce champ est requis</mat-error>
     </mat-form-field>
 
-  <!-- -->
-  <mat-card-actions >
-    <button mat-flat-button color="primary" (click)="onSubmit()" >
-      Se connecter
-    </button>
-  </mat-card-actions>
+    <!-- -->
+    <mat-card-actions >
+      <button mat-flat-button color="primary" (click)="onSubmit()" >
+        Se connecter
+      </button>
+    </mat-card-actions>
   </mat-card>
 </div>
