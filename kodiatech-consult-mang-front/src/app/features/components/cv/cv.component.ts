@@ -25,9 +25,10 @@ const ELEMENT_DATA: PeriodicElement[] = [
 
 
 @Component({
-  selector: 'app-cv',
-  templateUrl: './cv.component.html',
-  styleUrls: ['./cv.component.scss']
+    selector: 'app-cv',
+    templateUrl: './cv.component.html',
+    styleUrls: ['./cv.component.scss'],
+    standalone: false
 })
 export class CvComponent implements OnInit {
 

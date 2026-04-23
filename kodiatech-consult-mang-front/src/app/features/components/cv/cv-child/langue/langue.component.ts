@@ -49,9 +49,10 @@ const columns = [
 
 
 @Component({
-  selector: 'app-langue',
-  templateUrl: './langue.component.html',
-  styleUrls: ['./langue.component.scss']
+    selector: 'app-langue',
+    templateUrl: './langue.component.html',
+    styleUrls: ['./langue.component.scss'],
+    standalone: false
 })
 export class LangueComponent implements OnInit {
 

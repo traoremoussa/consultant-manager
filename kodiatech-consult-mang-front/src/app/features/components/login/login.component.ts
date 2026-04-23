@@ -6,9 +6,10 @@ import { AuthService } from '../../services/auth.service';
 import { StorageService } from '../../services/storage.service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+    selector: 'app-login',
+    templateUrl: './login.component.html',
+    styleUrls: ['./login.component.scss'],
+    standalone: false
 })
 export class LoginComponent implements OnInit {
   mainForm!: UntypedFormGroup;

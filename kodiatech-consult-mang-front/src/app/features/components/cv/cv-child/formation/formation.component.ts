@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { InterfaceAction } from '../../model-cv/interface-action';
 
 @Component({
-  selector: 'app-formation',
-  templateUrl: './formation.component.html',
-  styleUrls: ['./formation.component.scss']
+    selector: 'app-formation',
+    templateUrl: './formation.component.html',
+    styleUrls: ['./formation.component.scss'],
+    standalone: false
 })
 export class FormationComponent implements OnInit,InterfaceAction {
 

@@ -1,9 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-stepper-overview',
-  templateUrl: './stepper-overview.component.html',
-  styleUrls: ['./stepper-overview.component.scss'],
+    selector: 'app-stepper-overview',
+    templateUrl: './stepper-overview.component.html',
+    styleUrls: ['./stepper-overview.component.scss'],
+    standalone: false
 })
 export class StepperOverviewComponent implements OnInit {
   isLinear = false;

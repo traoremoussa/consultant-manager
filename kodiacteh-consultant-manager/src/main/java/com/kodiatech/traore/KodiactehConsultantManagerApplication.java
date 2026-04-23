@@ -29,7 +29,7 @@ public class KodiactehConsultantManagerApplication {
     @Bean
     public CommandLineRunner commandLineRunner(UtilisateurRepository utilisateurRepository) {
         return e -> {
-            final Adresse address = new Adresse("Thomas edison", "bat a, appt 68", "31400", "Toulouse");
+            final Adresse address = new Adresse("Thomas edison", "bat a, appt 68", "31400", "Toulouse", "France");
 
             final Utilisateur utilisateur = new Utilisateur("Traore", "moussa", "password8", "hij@gmail.com", "00-00-00-00-00-00", address);
 

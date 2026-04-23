@@ -41,9 +41,10 @@ const columns = [
 ];
 
 @Component({
-  selector: 'app-competence-tech',
-  templateUrl: './competence-tech.component.html',
-  styleUrls: ['./competence-tech.component.scss'],
+    selector: 'app-competence-tech',
+    templateUrl: './competence-tech.component.html',
+    styleUrls: ['./competence-tech.component.scss'],
+    standalone: false
 })
 export class CompetenceTechComponent implements OnInit {
   entete: string[] = ['Connaissance technique', 'Description'];

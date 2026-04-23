@@ -13,9 +13,10 @@ import { Subscription, tap } from 'rxjs';
 import { StorageService } from '../../services/storage.service';
 
 @Component({
-  selector: 'app-inscription',
-  templateUrl: './inscription.component.html',
-  styleUrls: ['./inscription.component.scss'],
+    selector: 'app-inscription',
+    templateUrl: './inscription.component.html',
+    styleUrls: ['./inscription.component.scss'],
+    standalone: false
 })
 export class InscriptionComponent implements OnInit, OnDestroy {
   //je vais faire un seul group de form

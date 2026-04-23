@@ -4,9 +4,10 @@ import { StorageService } from './features/services/storage.service';
 import { EventBusService } from './core/_shared/events/event-bus.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss'],
+    standalone: false
 })
 export class AppComponent implements OnInit, OnDestroy {
   title = 'kodiatech-consult-mang-front';

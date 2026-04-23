@@ -4,9 +4,10 @@ import { EventBusService } from '../../_shared/events/event-bus.service';
 import { EventData } from '../../_shared/events/event.class';
 
 @Component({
-  selector: 'app-bord-user',
-  templateUrl: './board-user.component.html',
-  styleUrls: ['./board-user.component.scss']
+    selector: 'app-bord-user',
+    templateUrl: './board-user.component.html',
+    styleUrls: ['./board-user.component.scss'],
+    standalone: false
 })
 export class BoardUserComponent implements OnInit {
   content?: string;

@@ -11,12 +11,13 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
-  selector: 'app-cv-form-field',
-  templateUrl: './cv-form-field.component.html',
-  styleUrls: ['./cv-form-field.component.scss'],
-  // Need to remove view encapsulation so that the custom tooltip style defined in
-  // `tooltip-custom-class-example.css` will not be scoped to this component's view.
-  encapsulation: ViewEncapsulation.None,
+    selector: 'app-cv-form-field',
+    templateUrl: './cv-form-field.component.html',
+    styleUrls: ['./cv-form-field.component.scss'],
+    // Need to remove view encapsulation so that the custom tooltip style defined in
+    // `tooltip-custom-class-example.css` will not be scoped to this component's view.
+    encapsulation: ViewEncapsulation.None,
+    standalone: false
 })
 export class CvFormFieldComponent implements OnInit {
   @Input() displayedColumns: any;
