@@ -22,15 +22,16 @@
     "@angular/router": "^20.3.19",
     "@ngx-loading-bar/core": "^6.0.2",
     "@ngx-loading-bar/http-client": "^6.0.2",
+    "@primeng/themes": "^21.0.4",
     "primeicons": "^7.0.0",
-    "primeng": "^21.1.6",
-    "rxjs": "~7.4.0",
+    "primeng": "^20.4.0",
+    "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.1"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^21.2.8",
-    "@angular/cli": "^21.2.8",
+    "@angular-devkit/build-angular": "^20.3.19",
+    "@angular/cli": "^20.3.19",
     "@angular/compiler-cli": "^20.3.19",
     "@types/jasmine": "~3.10.0",
     "@types/node": "^18.0.0",
@@ -40,6 +41,6 @@
     "karma-coverage": "~2.1.0",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
-    "typescript": "~5.9.0"
+    "typescript": "~5.8.0"
   }
 }
