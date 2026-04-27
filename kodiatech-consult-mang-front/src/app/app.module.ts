@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
-import { provideAnimations } from '@angular/platform-browser/animations';
 import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeng/themes/aura';
 
@@ -19,20 +18,16 @@ import Aura from '@primeng/themes/aura';
   imports: [
     BrowserModule,
     AppRoutingModule,
-
     CoreModule,
     SharedModule,
     FeaturesModule
   ],
-  providers: [ provideAnimations(),
-    providePrimeNG({
-      theme: {
-        preset: Aura,
-        options: {
-          cssLayer: false
-        }
-      }
-    })
+  providers: [
+     providePrimeNG({
+            theme: {
+                preset: Aura
+            }
+        })
   ],
   bootstrap: [AppComponent]
 })

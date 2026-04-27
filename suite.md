@@ -87,3 +87,79 @@ Je peux te montrer :
 comment détecter pays (GeoIP)
 envoyer alerte email “connexion suspecte”
 dashboard “sessions actives” comme Google
+
+
+
+
+-----------------------------------------------------------------------------------------------------FRONT --------------------------------------
+src/
+├── app/
+│   ├── core/                       # Services globaux (singleton)
+│   │   ├── interceptors/
+│   │   │   └── auth.interceptor.ts
+│   │   ├── guards/
+│   │   │   └── auth.guard.ts
+│   │   └── services/
+│   │       └── notification.service.ts
+│   │
+│   ├── shared/                     # Composants réutilisables
+│   │   ├── ui/
+│   │   │   ├── button/
+│   │   │   └── modal/
+│   │   ├── pipes/
+│   │   └── directives/
+│   │
+│   ├── features/                   # Chaque fonctionnalité est isolée
+│   │   │
+│   │   ├── admin/                  # Feature: Gestion admin
+│   │   │   ├── components/
+│   │   │   │   └── admin-add-consultant/
+│   │   │   ├── services/
+│   │   │   │   └── admin.service.ts
+│   │   │   ├── models/
+│   │   │   │   └── consultant-admin.dto.ts
+│   │   │   └── admin.routes.ts
+│   │   │
+│   │   └── consultant/             # Feature: Gestion consultant
+│   │       ├── components/
+│   │       │   ├── complete-profile/
+│   │       │   └── experience-form/
+│   │       ├── services/
+│   │       │   └── consultant.service.ts
+│   │       ├── models/
+│   │       │   ├── consultant.model.ts
+│   │       │   └── experience.model.ts
+│   │       └── consultant.routes.ts
+│   │
+│   ├── data-access/                # Couche d'accès aux données (API)
+│   │   ├── consultant.api.ts
+│   │   └── admin.api.ts
+│   │
+│   ├── app.routes.ts               # Routing principal
+│   └── app.component.ts
+│
+└── environments/
+    ├── environment.ts
+    └── environment.prod.ts
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

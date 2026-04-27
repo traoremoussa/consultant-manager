@@ -5,10 +5,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AuthGuard } from './components/guars/auth.guard';
+import { AdminAddConsultant } from './admin/components/admin-add-consultant/admin-add-consultant';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'inscription', component: InscriptionComponent, resolve: {} },
+  { path: 'add-consultant', component: AdminAddConsultant},
   {
     path: 'stepper',
     component: StepperOverviewComponent,
