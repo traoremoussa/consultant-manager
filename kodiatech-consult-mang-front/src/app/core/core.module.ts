@@ -40,7 +40,7 @@ import { BoardUserComponent } from './components/board-user/board-user.component
         { provide: LOCALE_ID, useValue: 'fr-FR' },
         //intercepteur
         httpInterceptorProviders,
-        provideHttpClient(withInterceptorsFromDi())
+        //provideHttpClient(withInterceptorsFromDi())
     ] })
 export class CoreModule {
   constructor() {

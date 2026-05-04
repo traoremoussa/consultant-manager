@@ -44,7 +44,7 @@ public class UtilisateurService {
                 .role(Role.USER)
                 .build();
 
-//TODO envoye message et token pour valider l'inscruption
+        //TODO envoye message et token pour valider l'inscruption
         return Observation.createNotStarted("addConsult", observationRegistry)
                 .observe(() -> (utilisateurRepository.save(utilisateur)));
     }

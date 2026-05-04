@@ -61,7 +61,7 @@
       -->
       <mat-form-field appearance="fill">
         <mat-label>Pays</mat-label>
-        <mat-select formControlName="country">
+        <mat-select formControlName="pays">
           @for (c of countries; track c) {
             <mat-option [value]="c.code">
               {{ c.name }}

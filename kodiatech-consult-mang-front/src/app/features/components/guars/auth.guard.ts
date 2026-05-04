@@ -3,6 +3,7 @@ import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from
 import { AuthService } from '../../services/auth.service';
 import { StorageService } from '../../services/storage.service';
 import { BaseConstantes } from 'src/app/core/constantes/BaseConstantes';
+import { ToastService } from 'src/app/shared/services/ToastService';
 
 
 @Injectable({
@@ -10,15 +11,15 @@ import { BaseConstantes } from 'src/app/core/constantes/BaseConstantes';
 })
 export class AuthGuard implements CanActivate {
 
-  constructor(private storageService: StorageService,
-              private router: Router) {}
+  constructor(private storageService: StorageService, private toastService: ToastService,
+    private router: Router) { }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     const token = this.storageService.getUser();
-   //alert(token.id)
     if (token.id) {
       return true;
     } else {
+      this.toastService.info('Vous n\'êtes pas connecté');
       this.router.navigateByUrl(BaseConstantes.LOGIN_PAGE);
       return false;
     }

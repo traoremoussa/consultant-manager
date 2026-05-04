@@ -2,6 +2,7 @@ package com.kodiatech.traore.feature.profiles.models;
 
 
 import com.kodiatech.traore.auth.models.Role;
+import com.kodiatech.traore.auth.models.Statut;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
@@ -32,19 +33,22 @@ public class Utilisateur {
     private String password;
     private String email;
     private String telephone;
-
     private String fonctionTitle;
-
     @CreatedDate
     private LocalDateTime createDate;
-
     @LastModifiedDate
     private LocalDateTime updateDate;
-
     @Enumerated(EnumType.STRING)
     private Role role;
+    @Enumerated(EnumType.STRING)
+    private Statut statut; // ACTIF, INACTIF, EN_ATTENTE
 
-    //private String photoProfil;
+    private String photoProfil;
+
+    //
+    private Double completudeProfil; // Pourcentage de complétude
+    private Boolean profileComplete;
+
 
     @DocumentReference
     private List<ConnaissanceTech> connaissanceTeches;
@@ -58,7 +62,7 @@ public class Utilisateur {
     private List<Langue> langues;
     @DocumentReference
     private List<ProjetPersonnel> projetPersonnels;
-
+    private List<Certification> certifications;
 
     //Adresse
     @DBRef

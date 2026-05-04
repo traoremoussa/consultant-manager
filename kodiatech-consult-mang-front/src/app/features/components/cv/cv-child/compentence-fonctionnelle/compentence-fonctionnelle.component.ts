@@ -6,11 +6,10 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./compentence-fonctionnelle.component.scss'],
     standalone: false
 })
-export class CompentenceFonctionnelleComponent implements OnInit {
+export class CompentenceFonctionnelleComponent{
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+
 
 }

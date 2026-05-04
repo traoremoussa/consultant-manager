@@ -18,7 +18,7 @@ export class ConsultantService {
  */
  public getConsultant(id:string):Observable<Consultant>{
    // alert(` Ins: ${id}`)
-    return this.http.get<Consultant>(`${environment.apiUrl}${ConsultantEndPointURI.ENDPOINT_CONSULTANT}${id}`)
+    return this.http.get<Consultant>(`${environment.apiUrl}${ConsultantEndPointURI.CONSULTANT.BASE}${id}`)
     .pipe(catchError(this.handleError));
   }
 

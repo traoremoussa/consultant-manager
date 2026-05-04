@@ -6,11 +6,13 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AuthGuard } from './components/guars/auth.guard';
 import { AdminAddConsultant } from './admin/components/admin-add-consultant/admin-add-consultant';
+import { ConsultantList } from './admin/components/consultant-list/consultant-list';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'inscription', component: InscriptionComponent, resolve: {} },
-  { path: 'add-consultant', component: AdminAddConsultant},
+  { path: 'add-consultant', component: AdminAddConsultant, canActivate: [AuthGuard]},
+  { path: 'list-consultant', component: ConsultantList},
   {
     path: 'stepper',
     component: StepperOverviewComponent,

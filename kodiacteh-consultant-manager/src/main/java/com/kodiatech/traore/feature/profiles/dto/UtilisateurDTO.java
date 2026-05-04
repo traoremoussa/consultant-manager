@@ -1,5 +1,6 @@
 package com.kodiatech.traore.feature.profiles.dto;
 
+import com.kodiatech.traore.auth.models.Statut;
 import com.kodiatech.traore.feature.profiles.models.Adresse;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,4 +18,12 @@ public class UtilisateurDTO {
     private String telephone;
     private Adresse adresse;
 
+    private String fonctionTitle;
+    private Statut statut; // ACTIF, INACTIF, EN_ATTENTE
+
+    private String photoProfil;
+
+    //
+    private Double completudeProfil; // Pourcentage de complétude
+    private Boolean profileComplete;
 }

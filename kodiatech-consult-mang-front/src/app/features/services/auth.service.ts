@@ -33,7 +33,7 @@ export class AuthService {
     //  sessionStorage.setItem('user',"");
     return this.http
       .post<AuthenticationResponse>(
-        environment.apiUrl + ConsultantEndPointURI.ENDPOINT_LOGIN_USER,
+        environment.apiUrl + ConsultantEndPointURI.AUTH.LOGIN,
         authenticationRequest,
         httpOptions
       )
@@ -79,7 +79,7 @@ export class AuthService {
     this.storageService.signOut();
   }
   refreshToken(token: string) {
-    return this.http.post<TokenRefreshResponse>(   environment.apiUrl + 'ENDPOINT_LOGIN_REFRESH', {
+    return this.http.post<TokenRefreshResponse>(   environment.apiUrl + ConsultantEndPointURI.AUTH.REFRESH, {
       refreshToken: token
     }, httpOptions);
   }

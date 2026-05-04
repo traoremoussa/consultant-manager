@@ -15,14 +15,6 @@ export class HomeComponent implements OnInit {
 
 
 
-
-
-
-
-
-
-
-
   constructor(private storageService: StorageService,private authService:AuthService) {}
 
   ngOnInit(): void {

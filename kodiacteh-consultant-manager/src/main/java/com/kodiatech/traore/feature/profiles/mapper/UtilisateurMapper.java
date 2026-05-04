@@ -1,5 +1,6 @@
 package com.kodiatech.traore.feature.profiles.mapper;
 
+import com.kodiatech.traore.feature.profiles.dto.ConsultantCreatDto;
 import com.kodiatech.traore.feature.profiles.dto.UtilisateurDTO;
 import com.kodiatech.traore.feature.profiles.models.Utilisateur;
 import org.mapstruct.Mapper;
@@ -21,5 +22,15 @@ public interface UtilisateurMapper {
     @Mapping(target = "adresse", source = "utilisateur.adresse")
     UtilisateurDTO utilisateurToUtilisateurDTO(Utilisateur utilisateur);
 
-    //TODO pour dto --> l'objet
+
+    // DTO création → Entity
+    @Mapping(target = "id", ignore = true)
+    @Mapping(target = "password", ignore = true)
+    @Mapping(target = "role", ignore = true)
+    @Mapping(target = "statut", ignore = true)
+    @Mapping(target = "profileComplete", ignore = true)
+    Utilisateur ConsultantCreatDtoToUtil(ConsultantCreatDto dto);
+
+    //Quand les champs ont le même nom → MapStruct les mappe automatiquement.
+    ConsultantCreatDto UtilToConsultantCreatDto(Utilisateur dto);
 }

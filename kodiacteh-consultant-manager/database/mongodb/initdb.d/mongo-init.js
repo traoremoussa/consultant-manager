@@ -21,15 +21,16 @@ db.utilisateurs.insertOne({
     prenom: "traore",
     password: "$2a$10$1YuGJeaKn5PDxIP7lULQaujY0v4cGsrXuPuEpoozhMsdO1ZOfmKWm",
     email: "t@gmail.com",
-    telephone: "00-00-00-00-00-00",
-    fonctionTitle: "Consultant",
+    telephone: "+33-06-61-08-95-10",
+    fonctionTitle: "Tech-lead",
     adresse: {
         adresse: "Thomas Edison",
         complementAdresse: "bat A, appt 68",
         codePostal: "31400",
-        ville: "Toulouse"
+        ville: "Toulouse",
+        pays: "France"
     },
-    role: "USER"
+    role: "ADMIN"
 });
 
 print("Base consultant_db initialisée avec succès");

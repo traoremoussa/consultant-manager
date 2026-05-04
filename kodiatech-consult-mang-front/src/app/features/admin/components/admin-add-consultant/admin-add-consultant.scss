@@ -1,0 +1,48 @@
+
+.form-card {
+  max-width: 500px;
+  margin: 120px auto 40px; /* compense la navbar */
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.row {
+  display: flex;
+  gap: 16px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+
+.row mat-form-field {
+  flex: 1; /* chaque champ prend la même largeur */
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.success {
+  color: #2e7d32;
+  margin-top: 10px;
+}
+
+.error {
+  color: #d32f2f;
+  margin-top: 10px;
+}
+mat-card-header {
+  margin-bottom: 16px;
+}
+
+mat-card-title {
+  margin-bottom: 8px;
+}

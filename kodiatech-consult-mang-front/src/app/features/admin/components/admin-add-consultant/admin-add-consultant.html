@@ -1,0 +1,54 @@
+
+<mat-card class="form-card">
+  <mat-card-header>
+    <mat-card-title>Ajouter un consultant</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <form (submit)="onSubmit($event)" class="form">
+
+      <div class="row">
+        <mat-form-field appearance="outline">
+          <mat-label>Nom</mat-label>
+          <input matInput placeholder="Nom"
+            [formField]="consultantForm.nom"
+            [class.error]="consultantForm.nom().invalid()">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Prénom</mat-label>
+          <input matInput placeholder="Prénom"
+            [formField]="consultantForm.prenom">
+        </mat-form-field>
+      </div>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" placeholder="Email"
+          [formField]="consultantForm.email">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Téléphone</mat-label>
+        <input matInput placeholder="Téléphone"
+          [formField]="consultantForm.telephone">
+      </mat-form-field>
+
+      <div class="actions">
+        <button mat-raised-button color="primary"
+          [disabled]="consultantForm().invalid() || consultantForm().pending()">
+          Ajouter
+        </button>
+      </div>
+
+    </form>
+
+    @if (successMessage()) {
+      <p class="success">{{ successMessage() }}</p>
+    }
+
+    @if (errorMessage()) {
+      <p class="error">{{ errorMessage() }}</p>
+    }
+  </mat-card-content>
+</mat-card>

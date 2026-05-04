@@ -1,5 +1,6 @@
 
 <ngx-loading-bar   [height]="'7px'"[color]="'#28d'"></ngx-loading-bar>
+<p-toast position="top-right"></p-toast>
 <mat-toolbar color="primary"  class="fixed-header">
   <mat-toolbar-row>
   <span>Koditatech</span>
@@ -18,12 +19,34 @@
       <span>Account</span>
     </a>
 
+    <!-- Consultant Gestion-->
+     <button mat-menu-item [matMenuTriggerFor]="gestionConsultant">
+     <mat-icon>person</mat-icon>
+      <span>Gestion Consultant</span>
+     </button>
+
+
+
     <a mat-menu-item (click)="dec_con()">
       <mat-icon>exit_to_app</mat-icon>
       <span>{{dec_conne}}</span>
     </a>
 
   </mat-menu>
+
+   <mat-menu #gestionConsultant="matMenu" >
+      <button mat-menu-item  [routerLink]="['/features/add-consultant']">
+      <mat-icon>person</mat-icon>
+      <span>Add Consultant</span>
+    </button >
+
+     <button mat-menu-item [routerLink]="['/features/list-consultant']">
+      <mat-icon>person</mat-icon>
+      <span>Liste Consultant</span>
+    </button >
+
+  </mat-menu>
+
 </mat-toolbar-row>
 </mat-toolbar>
 

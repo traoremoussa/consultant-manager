@@ -1,5 +1,6 @@
 package com.kodiatech.traore.auth.exception;
 
+import com.kodiatech.traore.feature.profiles.exceptions.UtilisateurFoundException;
 import com.kodiatech.traore.feature.profiles.exceptions.UtilisateurNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -41,4 +42,12 @@ public class GlobalExceptionHandler {
                 .status(HttpStatus.INTERNAL_SERVER_ERROR)
                 .body("Internal server error");
     }
+
+    @ExceptionHandler(UtilisateurFoundException.class)
+    public ResponseEntity<?> handleUserFound(UtilisateurFoundException ex) {
+        return ResponseEntity
+                .status(HttpStatus.FOUND)
+                .body(ex.getMessage());
+    }
+
 }

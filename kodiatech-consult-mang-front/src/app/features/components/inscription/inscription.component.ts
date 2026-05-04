@@ -62,6 +62,7 @@ export class InscriptionComponent implements OnInit, OnDestroy {
       complementAdresse: new UntypedFormControl(''),
       codePostal: new UntypedFormControl(''),
       ville: new UntypedFormControl(''),
+      pays: new UntypedFormControl(''),
     });
     this.mainForm = this.formBuilder.group({
       nom: ['', Validators.required],

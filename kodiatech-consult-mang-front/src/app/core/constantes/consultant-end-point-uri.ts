@@ -1,6 +1,19 @@
 export class ConsultantEndPointURI {
-  //-------- URL server (https) pas visible en clair (url)
-  public static ENDPOINT_LOGIN_USER = '/api/v1/auth/authenticate';
-  public static ENDPOINT_CONSULTANT="/api/v1/consultant/";
-  public static ENDPOINT_LOGIN_REFRESH = '/api/v1/auth/refreshtoken';
+  private static BASE = '/api/v1/';
+
+  static AUTH = {
+    LOGIN: ConsultantEndPointURI.BASE + 'auth/authenticate',
+    REFRESH: ConsultantEndPointURI.BASE + 'auth/refreshtoken'
+  };
+
+  static CONSULTANT = {
+    BASE: ConsultantEndPointURI.BASE + 'consultant/'
+  };
+
+  static ADMIN = {
+    ADD_CONSULTANT: ConsultantEndPointURI.BASE + 'admin/add/consultant',
+    CONSULTANTS: ConsultantEndPointURI.BASE + 'admin/consultants/',
+    GET_CONSULTANT_BY_ID: (id: number | string) =>  `${ConsultantEndPointURI.BASE}admin/consultant/${id}`
+  };
+
 }
