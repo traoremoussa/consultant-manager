@@ -22,6 +22,8 @@
 ## Exemple
 
 ![ image-exemple ](/accueil.png)
+** V2
+![ image-exemple ](/v2.png)
 ##
 ![ image-exemple ](/login.png)
 - Info perso
